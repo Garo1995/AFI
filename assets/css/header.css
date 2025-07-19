@@ -168,6 +168,14 @@ header .container-lage{
     .header-main {
         padding: 20px 10px 20px;
     }
+    .header-for-mobile {
+        display: block;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #fullpage {
+        margin-top: 16px;
+    }
     .open-menu span {
         font-size: 14px;
         line-height: 18px;
