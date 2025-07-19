@@ -62,6 +62,11 @@ $('.floor-svg-box').on('click', function() {
     $('.select-layout').addClass('select-layout-opened');
 })
 
+$('.pop-office').on('click', function() {
+    $('body').addClass('body-fixed');
+    $('.select-layout').addClass('select-layout-opened');
+})
+
 
 $('.back-select-layout').on('click', function() {
     $('.select-layout').removeClass('select-layout-opened');

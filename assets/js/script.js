@@ -29,10 +29,17 @@ $(document).ready(function () {
 
 
 
-$('.open-menu').on('click', function () {
+$('.open-menu').on('click', function (e) {
+    e.stopPropagation();
     $('.head-menu').toggleClass('menu-opened');
-})
 
+})
+$(window).on('click', function (e) {
+    let menuSort = $('.head-menu');
+    if (e.target !== menuSort) {
+        menuSort.removeClass('menu-opened');
+    }
+});
 
 
 $('.head-menu a').on('click', function () {
@@ -222,24 +229,21 @@ let officeSwiper = new Swiper(".office-station-slider", {
     spaceBetween: 5,
     loop: true,
     speed: 1000,
-    // direction: "vertical",
+    direction: "vertical",
     centeredSlides: true,
 
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
+
     pagination: {
         el: ".office-pagination",
         clickable: true,
     }
 });
 
-//
-// // Автопрокрутка вниз (то есть вызов предыдущего слайда)
-// setInterval(() => {
-//     officeSwiper.slidePrev(); // вместо slideNext
-// }, 2500);
+
+// Автопрокрутка вниз (то есть вызов предыдущего слайда)
+setInterval(() => {
+    officeSwiper.slidePrev(); // вместо slideNext
+}, 2500);
 
 
 
@@ -277,7 +281,12 @@ let constructSwiper = new Swiper(".construct-slider", {
 
 
 
-
+$('.open-filt-map').on('click', function (){
+    $('.infrast-map-cnt').addClass('infrast-map-open')
+})
+$('.close-filt-map').on('click', function (){
+    $('.infrast-map-cnt').removeClass('infrast-map-open')
+})
 
 
 let gallerySwiper = new Swiper(".gallery-slider", {

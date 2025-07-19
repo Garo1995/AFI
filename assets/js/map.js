@@ -1,15 +1,22 @@
+
 class YandexMapConstructor {
-    constructor({mapContainerId, defaultMarker, categories = [], defaultCenter = [55.662836, 37.536472], zoom = 15}) {
+    constructor({
+                    mapContainerId,
+                    defaultMarker,
+                    defaultCenter = [55.662836, 37.536472],
+                    zoom = 15,
+                    isMultiSelect = false
+                }) {
         this.mapContainerId = mapContainerId;
-        this.categories = categories;
         this.defaultCenter = defaultCenter;
         this.zoom = zoom;
         this.myMap = null;
-        this.selectedCategory = null;
+        this.selectedCategory = [];
         this.mainPlacemark = null;
         this.pointCollection = null;
         this.initialized = false;
         this.defaultMarker = defaultMarker;
+        this.isMultiSelect = isMultiSelect
 
         this.init();
     }
@@ -23,9 +30,10 @@ class YandexMapConstructor {
 
     initMap() {
         this.myMap = new ymaps.Map(this.mapContainerId, {
-            center: this.defaultCenter,
-            zoom: this.zoom,
-            controls: []
+            center: this.defaultCenter, zoom: this.zoom, controls: []
+        }, {
+            suppressMapOpenBlock: true, // запрет на переход в Яндекс.Карты
+            yandexMapDisablePoiInteractivity: true // отключить клики по POI
         });
         if (this.defaultMarker.length) {
             this.defaultMarker.forEach(marker => {
@@ -35,7 +43,7 @@ class YandexMapConstructor {
           <p class="title">${marker.title}</p>
         </div>`)
 
-                this.mainPlacemark = new ymaps.Placemark(marker.defaultCenter, {}, {
+                const defaultMarkers = new ymaps.Placemark(marker.defaultCenter, {}, {
                     iconLayout: "default#imageWithContent",
                     iconImageHref: '',
                     iconImageSize: [48, 48],
@@ -43,64 +51,97 @@ class YandexMapConstructor {
                     iconContentLayout: iconContent
                 });
 
-                this.myMap.geoObjects.add(this.mainPlacemark);
+
+                this.myMap.geoObjects.add(defaultMarkers);
             })
+            this.#generateDefaultMarker()
         }
+
+
+
     }
 
-    changeCategory(category) {
-        if (!this.myMap || !window.ymaps) return;
+    #generateDefaultMarker() {
+        const iconContent = ymaps.templateLayoutFactory.createClass(`
+        <div class="bs-point-custom main ${defaultMarker[0].className}" data-id="${defaultMarker[0].defaultCenter[0]}">
+       <img class="cover" src="${defaultMarker[0].icon}" alt="icons">
+          <p class="title">${defaultMarker[0].title}</p>
+        </div>`)
 
-        const isSame = this.selectedCategory?.title === category.title;
-        this.myMap.geoObjects.removeAll();
+        this.mainPlacemark = new ymaps.Placemark(defaultMarker[0].defaultCenter, {}, {
+            iconLayout: "default#imageWithContent",
+            iconImageHref: '',
+            iconImageSize: [48, 48],
+            zIndex: 2,
+            iconContentLayout: iconContent
+        })
+    }
 
-        if (isSame) {
-            this.selectedCategory = null;
-            this.myMap.geoObjects.add(this.mainPlacemark);
-            return;
-        }
-
-        this.selectedCategory = category;
+    #generateMarkersList() {
         this.pointCollection = new ymaps.GeoObjectCollection();
-
-        category.points.forEach((point) => {
-            const iconContent = ymaps.templateLayoutFactory.createClass(`
+        this.selectedCategory.forEach((category) => {
+            category.points.forEach(point => {
+                const iconContent = ymaps.templateLayoutFactory.createClass(`
         <div class="bs-point-custom" data-id="${point.lat}">
           <img src="${category.icon}" alt="icons">
           <p class="title">${point.title}</p>
         </div>
       `);
 
-            const placeMark = new ymaps.Placemark([point.lat, point.lot], {
-                iden: point.lat
-            }, {
-                iconLayout: "default#imageWithContent",
-                iconImageHref: '',
-                iconImageSize: [48, 48],
-                iconImageOffset: [-48, -48],
-                iconContentOffset: [0, 0],
-                zIndex: 2,
-                iconContentLayout: iconContent
-            });
+                const placeMark = new ymaps.Placemark([point.lat, point.lot], {
+                    iden: point.lat
+                }, {
+                    iconLayout: "default#imageWithContent",
+                    iconImageHref: '',
+                    iconImageSize: [48, 48],
+                    iconImageOffset: [-48, -48],
+                    iconContentOffset: [0, 0],
+                    zIndex: 2,
+                    iconContentLayout: iconContent
+                });
 
-            placeMark.events.add('mouseenter', (e) => {
-                const id = e.get('target').properties.get('iden');
-                const el = document.querySelector(`.bs-point-custom[data-id='${id}']`);
-                if (el) el.classList.add('hover');
-            });
+                placeMark.events.add('mouseenter', (e) => {
+                    const id = e.get('target').properties.get('iden');
+                    const el = document.querySelector(`.bs-point-custom[data-id='${id}']`);
+                    if (el) el.classList.add('hover');
+                });
 
-            placeMark.events.add('mouseleave', (e) => {
-                const id = e.get('target').properties.get('iden');
-                const el = document.querySelector(`.bs-point-custom[data-id='${id}']`);
-                if (el) el.classList.remove('hover');
-            });
+                placeMark.events.add('mouseleave', (e) => {
+                    const id = e.get('target').properties.get('iden');
+                    const el = document.querySelector(`.bs-point-custom[data-id='${id}']`);
+                    if (el) el.classList.remove('hover');
+                });
 
-            this.pointCollection.add(placeMark);
+                this.pointCollection.add(placeMark);
+            })
         });
-
         this.myMap.geoObjects.add(this.pointCollection);
         this.myMap.geoObjects.add(this.mainPlacemark);
 
+
+    }
+
+    changeCategory(category) {
+        if (!this.myMap || !window.ymaps) return;
+
+        const isSame = this.selectedCategory.some(x => x.title === category.title);
+        this.myMap.geoObjects.removeAll();
+
+        if (isSame) {
+            if (this.isMultiSelect) {
+                this.selectedCategory = this.selectedCategory.filter(x => x.title !== category.title);
+            } else {
+                this.selectedCategory = []
+            }
+        } else {
+            if (this.isMultiSelect) {
+                this.selectedCategory.push(category)
+            } else {
+                this.selectedCategory = [category]
+            }
+        }
+
+        this.#generateMarkersList()
         return this.selectedCategory
     }
 
@@ -123,4 +164,9 @@ class YandexMapConstructor {
             });
         }
     }
+
+
+
+
 }
+
