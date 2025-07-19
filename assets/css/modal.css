@@ -1,0 +1,288 @@
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-animation: unfoldIn 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    animation: unfoldIn 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal-content {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 14px;
+}
+.close{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    background: rgba(244, 244, 244, 1);
+    cursor: pointer;
+    z-index: 99;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-radius: 50%;
+}
+
+.close:before,
+.close:after{
+    content: "";
+    position: absolute;
+    background-color: rgba(38, 43, 49, 1);
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.close:before{
+    width: 12px;
+    height: 2px;
+}
+.close:after{
+    width: 2px;
+    height: 12px;
+}
+
+.modal-form{
+    background: rgba(255, 255, 255, 1);
+    max-width: 600px;
+    width: 100%;
+    border-radius: 40px;
+    padding: 64px 40px;
+    position: relative;
+}
+
+.leave-request h3{
+    color: rgba(38, 43, 49, 1);
+    text-align: left;
+    font-weight: 400;
+    text-transform: unset;
+}
+.leave-request p{
+    margin-top: 8px;
+    max-width: 450px;
+    width: 100%;
+    color: rgba(44, 51, 59, 1);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.modal-form-cnt{
+    margin-top: 32px;
+    gap: 32px;
+}
+.form-input{
+    width: 100%;
+}
+.form-input label{
+    display: flex;
+    width: 100%;
+}
+.form-input input{
+    background: rgba(244, 244, 244, 1);
+    width: 100%;
+    border-radius: 62px;
+    padding: 20px 40px;
+    color: rgba(44, 51, 59, 1);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 100%;
+    transition: 0.3s;
+}
+.form-input input::placeholder{
+    color: rgba(154, 154, 154, 1);
+
+}
+.error-input{
+    display: none;
+}
+.modal-form .btn{
+    margin-top: 24px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+}
+
+.check-form{
+    margin-top: 15px;
+    width: 100%;
+}
+
+.check-form label {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    max-width: 700px;
+    width: 100%;
+}
+.check-form label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.check-form label small {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2C333B;
+}
+.check-form label small a{
+    color: #C49D76;
+    text-decoration: underline;
+    display: inline;
+}
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: unset;
+    border: 1px solid #58595B;
+    border-radius: 4px;
+}
+.check-form label input:checked ~ .checkmark {
+    background-color: #C49D76;
+    border: 1px solid #C49D76;
+}
+
+.check-form label .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.check-form label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+
+#modal-gallery .modal-content{
+    padding: 0;
+}
+.modal-gallery {
+    background: #00000099;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding: 50px 150px 10px;
+}
+
+.gallery-slider{
+    width: 100%;
+}
+.gallery-photo{
+    width: 100%;
+}
+.gallery-photo img{
+    width: 100%;
+}
+
+.gallery-arrow{
+    margin-top: 30px;
+}
+.gallery-arrow .swiper-pagination{
+    position: relative;
+    bottom: 0;
+    width: 114px;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+}
+.gallery-arrow .swiper-button-prev, .gallery-arrow .swiper-button-next {
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    border: unset;
+    background: #FFFFFF33;
+}
+.gallery-arrow .swiper-button-prev:before {
+    transform: rotate(-135deg);
+    left: 20px;
+    border-top: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+}
+.gallery-arrow .swiper-button-next:before {
+    transform: rotate(45deg);
+    right: 19px;
+    border-top: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+}
+.gallery-arrow .swiper-button-prev:hover, .gallery-arrow .swiper-button-next:hover{
+    background: #C49D76;
+}
+
+
+
+@media (max-width: 767px){
+    .modal-form {
+        max-width: 480px;
+        border-radius: 24px;
+        padding: 50px 22px;
+    }
+    .form-input input {
+        padding: 14px 27px;
+        font-size: 16px;
+    }
+    .check-form label small {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .modal-form-cnt {
+        margin-top: 22px;
+        gap: 20px;
+    }
+    .close {
+        top: 19px;
+        right: 19px;
+        width: 32px;
+        height: 32px;
+    }
+    .leave-request p {
+        font-size: 15px;
+    }
+}
