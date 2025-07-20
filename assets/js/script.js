@@ -58,10 +58,24 @@ $('.btn-news').on('click', function () {
     $('.btn-line').removeClass('btn-line-act');
 })
 
+$('.menu-open-news').on('click', function () {
+    $('.btn-news').addClass('btn-line-act');
+    $('.all-news-cnt').addClass('all-news-opened');
+    $('.construct-prog-rel').addClass('construct-prog-none');
+    $('.btn-line').removeClass('btn-line-act');
+})
+
 
 
 $('.btn-line').on('click', function () {
     $(this).addClass('btn-line-act');
+    $('.all-news-cnt').removeClass('all-news-opened');
+    $('.construct-prog-rel').removeClass('construct-prog-none');
+    $('.btn-news').removeClass('btn-line-act');
+})
+
+$('.construction-xod').on('click', function () {
+    $('.btn-line').addClass('btn-line-act');
     $('.all-news-cnt').removeClass('all-news-opened');
     $('.construct-prog-rel').removeClass('construct-prog-none');
     $('.btn-news').removeClass('btn-line-act');
@@ -248,6 +262,18 @@ setInterval(() => {
 
 
 
+
+let constructDescSwiper = new Swiper(".construct-desc-slider", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    slidesPerGroup: 1,
+    speed: 600,
+    direction: "vertical",
+    navigation: {
+        nextEl: ".construct-button-next",
+        prevEl: ".construct-button-prev",
+    },
+});
 
 let constructSwiper = new Swiper(".construct-slider", {
     slidesPerView: 4,
