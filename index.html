@@ -12,8 +12,14 @@
     <title></title>
 </head>
 <body>
+<div class="head-fon-fix">
+    <div class="container-lage">
+        <div class="head-fon">
 
-<header class="header-for-mobile">
+        </div>
+    </div>
+</div>
+<header>
     <div class="container-lage">
         <div class="header-main G-align-center G-justify-between">
             <a href="#" class="logo G-flex">
@@ -31,23 +37,23 @@
                 <a href="#floor-selection" class="btn G-center">Подобрать офис</a>
             </div>
         </div>
-        <div class="head-menu">
-            <ul class="menu-scroll G-flex-column">
-                <li><a href="#location">Локация</a></li>
-                <li><a href="#infrastructure">Инфраструктура</a></li>
-                <li><a href="#peculiarities">Особенности помещений</a></li>
-                <li><a href="#management">Управляющая компания</a></li>
-                <li><a href="#technologies">Технологии</a></li>
-                <li><a href="#for-investors">Инвесторам</a></li>
-                <li><a href="#about-developer">О девелопере</a></li>
-                <li><a href="#floor-selection">Подбор помещения</a></li>
-                <li><a href="#construction" class="menu-open-news">Новости</a></li>
-                <li><a href="#construction" class="construction-xod">Ход строительства</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </div>
     </div>
 </header>
+<div class="head-menu">
+    <ul class="menu-scroll G-flex-column">
+        <li><a href="#location">Локация</a></li>
+        <li><a href="#infrastructure">Инфраструктура</a></li>
+        <li><a href="#peculiarities">Особенности помещений</a></li>
+        <li><a href="#management">Управляющая компания</a></li>
+        <li><a href="#technologies">Технологии</a></li>
+        <li><a href="#for-investors">Инвесторам</a></li>
+        <li><a href="#about-developer">О девелопере</a></li>
+        <li><a href="#floor-selection">Подбор помещения</a></li>
+        <li><a href="#construction" class="menu-open-news">Новости</a></li>
+        <li><a href="#construction" class="construction-xod">Ход строительства</a></li>
+        <li><a href="#contact">Контакты</a></li>
+    </ul>
+</div>
 
 
 <div id="fullpage">
@@ -1173,16 +1179,15 @@
                         <h3>Ход строительства</h3>
                     </div>
                 </div>
-                <div class="all-news-modal">
+                <div class="all-news-modal sort-panel">
                     <span class="close-news-modal"></span>
                     <div class="all-news-col">
                         <img class="add-news-photo" src="" alt="news">
                         <div class="all-news-padd">
                             <h3 class="add-news-title"></h3>
                             <p class="add-news-text">
-
+                            </p>
                         </div>
-                        </p>
                     </div>
                 </div>
 
@@ -3346,6 +3351,18 @@
     ]
     const productsList = [
         {
+            title: "Все",
+            category: "all",
+            icon: '',
+            points: [
+                {title: "Парки ", lat: 55.662846, lot: 37.536672, icon:'./assets/img/park.svg'},
+                {title: "Школы 1", lat: 55.662646, lot: 37.536272,icon:'./assets/img/scul.svg'},
+                {title: "ВУЗы", lat: 55.662886, lot: 37.536402,icon:'./assets/img/universities.svg'},
+                {title: "Кафе и рестораны 1", lat: 55.662896, lot: 37.537622,icon:'./assets/img/cafe.svg'},
+                {title: "Фитнес 1", lat: 55.662846, lot: 37.536772,icon:'./assets/img/fitnes.svg'},
+            ]
+        },
+        {
             title: "Парки",
             category: "park",
             icon: './assets/img/park.svg',
@@ -3396,12 +3413,17 @@
         defaultMarker: defaultMarker,
         isMultiSelect: true
     })
+    const allPoints = productsList.map(x=>x.points).flat()
 
     const categoryListContainer = document.getElementById('category-list')
+
+
     for (let i = 0; i < productsList.length; i++) {
         let productItem = document.createElement('li')
         productItem.innerHTML = `
-            <div class="map-icon"><img src="${productsList[i].icon}" alt="food"/></div>
+            <div class="map-icon ${productsList[i].icon?'show-icon':''}">
+            <img src="${productsList[i].icon}" alt="food"/>
+            </div>
                         <div class="map-cnt-info G-align-center G-justify-between"><span>${productsList[i].title}</span> <span>${productsList[i].points.length}</span>
                         </div>
         `

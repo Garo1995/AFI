@@ -60,6 +60,9 @@ p{
 #fullpage{
     z-index: 111;
 }
+.at-floor{
+    z-index: 0;
+}
 .fp-table {
     justify-content: flex-start;
     margin-top: 118px;
@@ -144,6 +147,14 @@ p{
     z-index: 2;
     height: 236px;
 }
+
+
+
+
+
+
+
+
 
 .office-station-box{
     border-radius: 40px;
@@ -2271,9 +2282,12 @@ footer{
     height: 24px;
     border-radius: 50%;
     transition: 0.3s;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+}
+.map-icon.show-icon{
+    display: flex;
 }
 
 .map-icon img {

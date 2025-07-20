@@ -9,16 +9,16 @@ $(document).ready(function () {
         $(this).toggleClass('close-menu');
         if ($(this).hasClass('close-menu')) {
             $('.header-menu').addClass('transition-menu');
-            $('body').addClass('body_fix');
+            // $('body').addClass('body_fix');
         } else {
             $('.header-menu').addClass('menu-width');
-            $('body').removeClass('body_fix');
+            // $('body').removeClass('body_fix');
             $('.header-menu').removeClass('transition-menu');
         }
     });
     $('.header-menu a').on('click', function () {
         $('.header-menu').addClass('menu-width');
-        $('body').removeClass('body_fix');
+        // $('body').removeClass('body_fix');
         $('.header-menu').removeClass('transition-menu');
         $('.open-menu').removeClass('close-menu');
     })
@@ -278,17 +278,17 @@ let constructDescSwiper = new Swiper(".construct-desc-slider", {
 let constructSwiper = new Swiper(".construct-slider", {
     slidesPerView: 4,
     spaceBetween: 20,
-    slidesPerGroup: 4,
+    slidesPerGroup: 1,
     speed: 600,
     breakpoints: {
-        '1299': {
+        '1020': {
             slidesPerView: 4,
             spaceBetween: 20,
-            slidesPerGroup: 4,
+            slidesPerGroup: 1,
         },
         '707': {
             slidesPerView: 3,
-            slidesPerGroup: 3,
+            slidesPerGroup: 1,
             spaceBetween: 20,
             loop: true,
         },
@@ -333,7 +333,24 @@ let gallerySwiper = new Swiper(".gallery-slider", {
 
 
 
+if (window.innerWidth <= 768) { // или 1024 — по твоей адаптивной сетке
+    document.querySelectorAll('.sort-panel').forEach(panel => {
+        let startY = 0;
+        let endY = 0;
 
+        panel.addEventListener('touchstart', function (e) {
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        panel.addEventListener('touchend', function (e) {
+            endY = e.changedTouches[0].clientY;
+
+            if (endY - startY > 50) {
+                panel.classList.add('hidden');
+            }
+        }, { passive: true });
+    });
+}
 
 
 

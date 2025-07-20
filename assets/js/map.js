@@ -81,9 +81,12 @@ class YandexMapConstructor {
         this.pointCollection = new ymaps.GeoObjectCollection();
         this.selectedCategory.forEach((category) => {
             category.points.forEach(point => {
+
+                const  iconData = category.icon?category.icon: point.icon?point.icon:''
+
                 const iconContent = ymaps.templateLayoutFactory.createClass(`
         <div class="bs-point-custom" data-id="${point.lat}">
-          <img src="${category.icon}" alt="icons">
+          <img class="${iconData??'active-icon'}" src="${iconData}" alt="icons">
           <p class="title">${point.title}</p>
         </div>
       `);

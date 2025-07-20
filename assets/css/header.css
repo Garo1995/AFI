@@ -3,6 +3,7 @@ header{
     top: 20px;
     position: fixed;
     left: 0;
+    z-index: 21;
 }
 
 #fp-nav{
@@ -12,8 +13,20 @@ header .container-lage{
     position: relative;
 
 }
-.header-main{
+.head-fon-fix{
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 0;
+    width: 100%;
+}
+.head-fon{
     background: #F4F4F4;
+    height: 200px;
+    border-radius: 40px 40px 0 0;
+
+}
+.header-main{
     border-radius: 40px 40px 0 0;
     padding: 30px 60px 40px;
 }
@@ -82,9 +95,9 @@ header .container-lage{
     padding: 32px;
     border-radius: 40px;
     position: absolute;
-    top: 100px;
+    top: 117px;
     right: 90px;
-    z-index: 991;
+    z-index: 9991;
     display: none;
 }
 .menu-opened{
@@ -136,9 +149,7 @@ header .container-lage{
         line-height: 19px;
         padding: 10px;
     }
-    .header-main {
-        padding: 20px 14px 20px;
-    }
+
     .open-menu {
         padding: 10px 20px;
         gap: 8px;
@@ -150,7 +161,21 @@ header .container-lage{
 
 }
 
+@media (max-width: 1399px){
+    .head-fon-fix{
+        display: none;
+    }
+    .header-main{
+        background: #F4F4F4;
 
+    }
+    header{
+        position: relative;
+    }
+    .head-menu {
+        top: 94px;
+    }
+}
 @media (max-width: 1199px){
     .logo {
         width: 120px;
@@ -161,11 +186,6 @@ header .container-lage{
     }
     .header-main {
         padding: 20px 10px 20px;
-    }
-    .header-for-mobile {
-        display: block;
-        margin-top: 0;
-        margin-bottom: 0;
     }
 
     .open-menu span {
