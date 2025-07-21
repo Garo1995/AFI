@@ -251,23 +251,15 @@ function closeModal() {
 $('.menu-scroll a').click(function(e) {
     e.preventDefault();
 
-    const targetId = $(this).attr('href'); // например "#block1"
-    const $target = $(targetId);
+    let targetId = $(this).attr('href'); // например "#about"
+    let $target = $(targetId);
 
     if ($target.length) {
-        // Временно отключаем fullpage
-        if (typeof fullpage_api !== 'undefined') {
-            fullpage_api.setAutoScrolling(false);
-        }
+        let offset = $target.offset().top - 20;
 
-        // Плавная прокрутка вниз
-        const offset = $target.offset().top;
-        $('html, body').animate({ scrollTop: offset }, 700, function() {
-            // Возвращаем fullpage обратно
-            if (typeof fullpage_api !== 'undefined') {
-                fullpage_api.setAutoScrolling(true);
-            }
-        });
+        $('html, body').animate({
+            scrollTop: offset
+        }, 600); // скорость прокрутки
     }
 });
 
