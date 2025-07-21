@@ -49,13 +49,13 @@ $('.head-menu a').on('click', function () {
 
 
 
-
-
 $('.btn-news').on('click', function () {
     $(this).addClass('btn-line-act');
     $('.all-news-cnt').addClass('all-news-opened');
     $('.construct-prog-rel').addClass('construct-prog-none');
     $('.btn-line').removeClass('btn-line-act');
+    let text = $(this).text();
+    $('.construct-title').text(text);
 })
 
 $('.menu-open-news').on('click', function () {
@@ -72,6 +72,9 @@ $('.btn-line').on('click', function () {
     $('.all-news-cnt').removeClass('all-news-opened');
     $('.construct-prog-rel').removeClass('construct-prog-none');
     $('.btn-news').removeClass('btn-line-act');
+    let text = $(this).text();
+    $('.construct-title').text(text);
+
 })
 
 $('.construction-xod').on('click', function () {
@@ -212,20 +215,7 @@ $(window).on('click', function (e) {
 
 
 
-$('.menu-scroll a').click(function(e) {
-    e.preventDefault();
 
-    let targetId = $(this).attr('href'); // например "#about"
-    let $target = $(targetId);
-
-    if ($target.length) {
-        let offset = $target.offset().top - 20;
-
-        $('html, body').animate({
-            scrollTop: offset
-        }, 600); // скорость прокрутки
-    }
-});
 
 
 $('.offices-business-box').on('click', function () {
@@ -381,6 +371,13 @@ $(function () {
     }
     let accordion = new Accordion($('#accordion'), false);
 });
+
+
+
+
+
+
+
 
 
 

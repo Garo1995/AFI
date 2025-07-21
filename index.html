@@ -1043,7 +1043,7 @@
                             <button class="btn-news G-center">Новости</button>
                             <button class="btn-line btn-line-act G-center">Ход строительства</button>
                         </div>
-                        <h3>Ход строительства</h3>
+                        <h3 class="construct-title">Ход строительства</h3>
                     </div>
                 </div>
                 <div class="sorting-modal all-news-modal ">
@@ -1548,9 +1548,9 @@
                         <div class="floor-room-fon">
                             <div class="floor-room-price G-align-center G-justify-between">
                                 <strong>211 000 000 ₽</strong>
-                                <span class="arrow-top-rig">
+                                <span data-val="modal"  class="open_modal arrow-top-rig">
                                 <img src="./assets/img/arrow-top-rig.svg" alt="arrow">
-                            </span>
+                                </span>
                             </div>
                             <div class="floor-room-flex G-align-center G-justify-between">
                                 <div class="floor-room-item G-align-center G-justify-between">
@@ -2788,9 +2788,9 @@
                         <div class="floor-room-fon">
                             <div class="floor-room-price G-align-center G-justify-between">
                                 <strong>211 000 000 ₽</strong>
-                                <span class="arrow-top-rig">
-                               <img src="./assets/img/arrow-top-rig.svg" alt="arrow">
-                            </span>
+                                <span data-val="modal"  class="open_modal arrow-top-rig">
+                                <img src="./assets/img/arrow-top-rig.svg" alt="arrow">
+                                </span>
                             </div>
                             <div class="floor-room-flex G-align-center G-justify-between">
                                 <div class="floor-room-item G-align-center G-justify-between">
@@ -3092,9 +3092,19 @@
             ],
             showActiveTooltip: true,
             scrollOverflow: true,
+            navigation: true
+
         });
     }
+    $('.menu-scroll a').on('click', function (e) {
+        e.preventDefault();
+        const anchor = $(this).attr('href').substring(1); // "section1"
+        fullpage_api.moveTo(anchor);
+    });
 </script>
+
+
+
 
 <script>
     const defaultMarker = [

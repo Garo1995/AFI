@@ -236,7 +236,9 @@ p{
 .business-center-photo{
     position: relative;
     z-index: 4;
-
+    width: 172px;
+    border: 6px solid #2C333B;
+    border-radius: 50%;
 }
 .business-center-photo + .business-center-photo{
     margin-left: -33px;
@@ -359,11 +361,25 @@ p{
     transition: 0.3s;
     white-space: nowrap;
 }
+.interactive-map:hover{
+    color: #FFFFFF;
+    background: #C49D76;
+}
 .map-point-rotate{
     content: url("../img/map-point-rotate.svg");
     width: 24px;
     height: 24px;
     transition: 0.3s;
+}
+.interactive-map:hover .map-point-rotate{
+    filter: brightness(0) saturate(100%) invert(1);
+
+}
+.fp-is-overflow>.fp-overflow{
+    overflow: unset!important;
+}
+.asd{
+    height: 100vh;
 }
 
 .offices-business-fon{
@@ -2051,8 +2067,8 @@ footer{
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    top: 207px;
-    right: 224px;
+    top: 201px;
+    right: 220px;
     display: block;
     position: absolute;
     -webkit-animation: sdb07 3s infinite;

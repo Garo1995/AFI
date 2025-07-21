@@ -189,8 +189,8 @@
         max-width: 820px;
     }
     .footer-map-circ {
-        top: 160px;
-        right: 176px;
+        top: 155px;
+        right: 169px;
     }
     .facility-leaders-box {
         padding: 30px;
@@ -250,6 +250,9 @@
         max-width: 271px;
         padding: 28px;
         border-radius: 32px;
+    }
+    .select-layout-main {
+        height: 80%;
     }
 }
 
@@ -605,8 +608,8 @@
         max-width: 800px;
     }
     .footer-map-circ {
-        top: 155px;
-        right: 169px;
+        top: 152px;
+        right: 163px;
     }
 
 
