@@ -149,13 +149,6 @@ p{
 }
 
 
-
-
-
-
-
-
-
 .office-station-box{
     border-radius: 40px;
     padding: 40px 40px 68px;
@@ -946,6 +939,8 @@ p{
 .construct-desc-slider{
     width: 100%;
     border-radius: 40px;
+    height: 599px;
+
 }
 .construct-slider-mobile{
     display: none;
@@ -955,9 +950,6 @@ p{
 }
 .construct-slider-desc{
     width: 100%;
-}
-.construct-desc-slider{
-    height: 600px;
 }
 .sec-floor-head{
     transform: translateY(-106px);
@@ -1169,6 +1161,7 @@ p{
 }
 .arrow-top-rig path{
     transition: 0.3s;
+    stroke: #47515D;
 }
 .arrow-top-rig:hover path{
     stroke: #FFFFFF;

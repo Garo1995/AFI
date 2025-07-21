@@ -208,6 +208,12 @@
     .offices-business-fon{
         border-radius: 32px;
     }
+    .head-fon {
+        height: 170px;
+    }
+    .all-news-box {
+        padding: 26px 24px 27px;
+    }
     .office-green-fon {
         border-radius: 32px;
     }
@@ -377,6 +383,10 @@
     .leaders-photo img{
         border-radius: 24px;
         object-fit: cover;
+    }
+    .all-news-box p {
+        margin-top: 12px;
+        margin-bottom: 12px;
     }
     .technologies-photo img {
         width: 100%;
@@ -866,7 +876,9 @@
     h2 {
         font-size: 30px;
     }
-
+    .sec-floor-head {
+        transform: translateY(-107px);
+    }
 }
 
 @media (max-width: 1399px){
@@ -896,13 +908,20 @@
     .floor-selection-menu{
         display: none;
     }
-
+    .construct-prog-rel {
+        padding-right: 70px;
+    }
 
 }
 
 
 @media (max-width: 1299px){
-
+    .container-lage {
+        padding: 0 10px;
+    }
+    .container {
+        padding: 0 12px;
+    }
     .business-center-info {
         max-width: 492px;
     }
@@ -1012,6 +1031,13 @@
     }
     .floor-room-svg svg{
         width: 100%;
+        height: auto;
+    }
+    .construct-card-fl {
+        gap: 10px;
+    }
+    .construct-card-name h4 {
+        font-size: 20px;
     }
     .btn-white {
         padding: 12px 17px;
@@ -1087,6 +1113,9 @@
     .head-menu {
         top: 75px;
         right: 8px;
+    }
+    .construct-card-name h4 {
+        font-size: 20px;
     }
     .business-center-cnt{
         display: none;

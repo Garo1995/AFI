@@ -333,25 +333,6 @@ let gallerySwiper = new Swiper(".gallery-slider", {
 
 
 
-if (window.innerWidth <= 768) { // или 1024 — по твоей адаптивной сетке
-    document.querySelectorAll('.sort-panel').forEach(panel => {
-        let startY = 0;
-        let endY = 0;
-
-        panel.addEventListener('touchstart', function (e) {
-            startY = e.touches[0].clientY;
-        }, { passive: true });
-
-        panel.addEventListener('touchend', function (e) {
-            endY = e.changedTouches[0].clientY;
-
-            if (endY - startY > 50) {
-                panel.classList.add('hidden');
-            }
-        }, { passive: true });
-    });
-}
-
 
 
 
@@ -392,7 +373,26 @@ $(function () {
 
 
 
+let startY = 0;
+let modal = document.querySelector('.sorting-modal'); // замени на свой класс
 
+modal.addEventListener('touchstart', function (e) {
+    startY = e.touches[0].clientY;
+}, false);
+
+modal.addEventListener('touchmove', function (e) {
+    let moveY = e.touches[0].clientY;
+    let diffY = moveY - startY;
+
+    // если свайп вниз больше 50px — закрываем окно
+    if (diffY > 50) {
+        closeModal(); // твоя функция закрытия окна
+    }
+}, false);
+
+function closeModal() {
+    modal.style.display = 'none'; // или любой способ скрытия
+}
 
 
 
@@ -444,22 +444,29 @@ $(window).on('click', function (event) {
 
 
 
+$('.menu-scroll a').click(function(e) {
+    e.preventDefault();
 
-$('.menu-scroll a').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-        && location.hostname == this.hostname) {
-        let $target = $(this.hash);
-        $target = $target.length && $target
-            || $('[name=' + this.hash.slice(1) +']');
-        if ($target.length) {
-            let targetOffset = $target.offset().top-20;
-            $('html,body')
-                .animate({scrollTop: targetOffset}, 1000);
-            return false;
+    let target = $(this).attr('href'); // например "#section1"
+    if (!target.startsWith('#')) return;
+
+    let targetId = target.substring(1); // "section1"
+    let $target = $('#' + targetId);
+
+    if ($target.length === 0) return;
+
+    // Проверяем, входит ли целевой элемент в fullpage
+    if ($target.closest('#fullpage').length > 0) {
+        // Используем fullpage для прокрутки
+        if (typeof fullpage_api !== 'undefined') {
+            fullpage_api.moveTo(targetId);
         }
+    } else {
+        // Обычный плавный скролл для секций вне fullpage
+        let targetOffset = $target.offset().top - 20; // отступ
+        $('html, body').animate({scrollTop: targetOffset}, 1800);
     }
 });
-
 
 
 
