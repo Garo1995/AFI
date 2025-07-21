@@ -168,6 +168,7 @@ $('.all-news-box').on('click', function (e) {
 
 })
 
+
 $('.all-news-modal').on('click', function (e) {
     e.stopPropagation();
 })
