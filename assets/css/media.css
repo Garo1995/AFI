@@ -2037,7 +2037,8 @@
         transform: translateX(-50%);
         background: #EBEEF3;
         width: 28px;
-        height: 3px;
+        height: 6px;
+        border-radius: 10px;
     }
     .floor-room-cnt {
         max-width: 500px;

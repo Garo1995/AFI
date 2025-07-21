@@ -1099,10 +1099,10 @@ p{
     display: none;
 }
 
-.all-news-box:hover .arrow-top-rig path{
-    stroke: #FFFFFF;
-}
 
+.all-news-box:hover .arrow-top-rig img{
+    filter: brightness(0) saturate(100%) invert(1);
+}
 .all-news-box:hover .arrow-top-rig{
     background: #C49D76;
 }
@@ -1159,12 +1159,12 @@ p{
     transition: 0.3s;
     cursor: pointer;
 }
-.arrow-top-rig path{
+.arrow-top-rig img{
     transition: 0.3s;
-    stroke: #47515D;
+    display: block;
 }
-.arrow-top-rig:hover path{
-    stroke: #FFFFFF;
+.arrow-top-rig:hover img{
+    filter: brightness(0) saturate(100%) invert(1);
 }
 
 .arrow-top-rig:hover{
@@ -1624,14 +1624,18 @@ footer{
     transition: 0.3s;
     cursor: pointer;
 }
-.found-cnt-box:hover .arrow-top-rig path{
-    stroke: #FFFFFF;
+
+.found-cnt-box:hover .arrow-top-rig img{
+    filter: brightness(0) saturate(100%) invert(1);
 }
 
 .found-cnt-box:hover .arrow-top-rig{
     background: #C49D76;
 }
 
+.remove-tach{
+    display: none;
+}
 .found-cnt-photo{
     width: 100%;
     background: #F4F4F4;

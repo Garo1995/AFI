@@ -168,7 +168,6 @@ $('.all-news-box').on('click', function (e) {
 
 })
 
-
 $('.all-news-modal').on('click', function (e) {
     e.stopPropagation();
 })
@@ -193,6 +192,13 @@ $('.open-filter-mobile').on('click', function (e) {
     $('.floor-plan-fixed').toggleClass('plan-fixed-open');
 })
 
+
+$('.floor-plan-line').on('click', function (e) {
+    e.stopPropagation();
+    $('.floor-plan-fixed').removeClass('plan-fixed-open');
+})
+
+
 $('.floor-plan-fixed').on('click', function (e) {
     e.stopPropagation();
 })
@@ -208,10 +214,62 @@ $(window).on('click', function (e) {
 
 
 
+let startY = 0;
+let isDragging = false;
+let modal = document.querySelector('.sorting-modal');
+
+modal.addEventListener('touchstart', function (e) {
+    startY = e.touches[0].clientY;
+
+    // проверяем, что палец начался в верхней части окна (например, верхние 100px)
+    const rect = modal.getBoundingClientRect();
+    if (startY - rect.top < 100) {
+        isDragging = true;
+    } else {
+        isDragging = false;
+    }
+}, false);
+
+modal.addEventListener('touchmove', function (e) {
+    if (!isDragging) return;
+
+    let currentY = e.touches[0].clientY;
+    let deltaY = currentY - startY;
+
+    if (deltaY > 60) { // свайп вниз на 60px+
+        closeModal();
+        isDragging = false;
+    }
+}, false);
+
+function closeModal() {
+    modal.classList.remove('remove-tach');
+
+}
 
 
+$('.menu-scroll a').click(function(e) {
+    e.preventDefault();
 
+    const targetId = $(this).attr('href'); // например "#block1"
+    const $target = $(targetId);
 
+    if ($target.length) {
+        // Временно отключаем fullpage
+        if (typeof fullpage_api !== 'undefined') {
+            fullpage_api.setAutoScrolling(false);
+        }
+
+        // Плавная прокрутка вниз
+        const offset = $target.offset().top;
+        $('html, body').animate({ scrollTop: offset }, 700, function() {
+            // Возвращаем fullpage обратно
+            if (typeof fullpage_api !== 'undefined') {
+                fullpage_api.setAutoScrolling(true);
+            }
+        });
+    }
+});
 
 
 $('.offices-business-box').on('click', function () {
@@ -420,76 +478,6 @@ $(window).on('click', function (event) {
         }
     })
 });
-
-
-
-$('.menu-scroll a').click(function(e) {
-    e.preventDefault();
-
-    let target = $(this).attr('href'); // например "#section1"
-    if (!target.startsWith('#')) return;
-
-    let targetId = target.substring(1); // "section1"
-    let $target = $('#' + targetId);
-
-    if ($target.length === 0) return;
-
-    // Проверяем, входит ли целевой элемент в fullpage
-    if ($target.closest('#fullpage').length > 0) {
-        // Используем fullpage для прокрутки
-        if (typeof fullpage_api !== 'undefined') {
-            fullpage_api.moveTo(targetId);
-        }
-    } else {
-        // Обычный плавный скролл для секций вне fullpage
-        let targetOffset = $target.offset().top - 20; // отступ
-        $('html, body').animate({scrollTop: targetOffset}, 1800);
-    }
-});
-
-
-
-
-
-
-
-
-
-    let startY = 0;
-    let isFromTop = false;
-    const modal = document.querySelector('.sorting-modal');
-
-    // когда палец касается экрана
-    modal.addEventListener('touchstart', function (e) {
-    startY = e.touches[0].clientY;
-
-    // проверяем, что касание было в верхней части модального окна (например, первые 100px)
-    const rect = modal.getBoundingClientRect();
-    if (startY - rect.top < 100) {
-    isFromTop = true;
-} else {
-    isFromTop = false;
-}
-}, false);
-
-    // когда палец двигается
-    modal.addEventListener('touchmove', function (e) {
-    if (!isFromTop) return;
-
-    let moveY = e.touches[0].clientY;
-    let diffY = moveY - startY;
-
-    if (diffY > 60) { // если сдвинули вниз на 60px+
-    closeModal();  // функция скрытия
-}
-}, false);
-
-    // функция закрытия окна
-    function closeModal() {
-    const modal = document.querySelector('.sorting-modal');
-    modal.style.display = 'none'; // или .classList.remove('active'), в зависимости от логики
-}
-
 
 
 
