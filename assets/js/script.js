@@ -373,28 +373,6 @@ $(function () {
 
 
 
-let startY = 0;
-let modal = document.querySelector('.sorting-modal'); // замени на свой класс
-
-modal.addEventListener('touchstart', function (e) {
-    startY = e.touches[0].clientY;
-}, false);
-
-modal.addEventListener('touchmove', function (e) {
-    let moveY = e.touches[0].clientY;
-    let diffY = moveY - startY;
-
-    // если свайп вниз больше 50px — закрываем окно
-    if (diffY > 50) {
-        closeModal(); // твоя функция закрытия окна
-    }
-}, false);
-
-function closeModal() {
-    modal.style.display = 'none'; // или любой способ скрытия
-}
-
-
 
 
 
@@ -467,6 +445,49 @@ $('.menu-scroll a').click(function(e) {
         $('html, body').animate({scrollTop: targetOffset}, 1800);
     }
 });
+
+
+
+
+
+
+
+
+
+    let startY = 0;
+    let isFromTop = false;
+    const modal = document.querySelector('.sorting-modal');
+
+    // когда палец касается экрана
+    modal.addEventListener('touchstart', function (e) {
+    startY = e.touches[0].clientY;
+
+    // проверяем, что касание было в верхней части модального окна (например, первые 100px)
+    const rect = modal.getBoundingClientRect();
+    if (startY - rect.top < 100) {
+    isFromTop = true;
+} else {
+    isFromTop = false;
+}
+}, false);
+
+    // когда палец двигается
+    modal.addEventListener('touchmove', function (e) {
+    if (!isFromTop) return;
+
+    let moveY = e.touches[0].clientY;
+    let diffY = moveY - startY;
+
+    if (diffY > 60) { // если сдвинули вниз на 60px+
+    closeModal();  // функция скрытия
+}
+}, false);
+
+    // функция закрытия окна
+    function closeModal() {
+    const modal = document.querySelector('.sorting-modal');
+    modal.style.display = 'none'; // или .classList.remove('active'), в зависимости от логики
+}
 
 
 
