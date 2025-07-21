@@ -1868,7 +1868,8 @@
     }
     .close-news-modal {
         width: 28px;
-        height: 3px;
+        height: 5px;
+        border-radius: 10px;
         top: 8px;
         right: auto;
         background: rgba(235, 238, 243, 1);

@@ -212,42 +212,6 @@ $(window).on('click', function (e) {
 
 
 
-
-
-let startY = 0;
-let isDragging = false;
-let modal = document.querySelector('.sorting-modal');
-
-modal.addEventListener('touchstart', function (e) {
-    startY = e.touches[0].clientY;
-
-    // проверяем, что палец начался в верхней части окна (например, верхние 100px)
-    const rect = modal.getBoundingClientRect();
-    if (startY - rect.top < 100) {
-        isDragging = true;
-    } else {
-        isDragging = false;
-    }
-}, false);
-
-modal.addEventListener('touchmove', function (e) {
-    if (!isDragging) return;
-
-    let currentY = e.touches[0].clientY;
-    let deltaY = currentY - startY;
-
-    if (deltaY > 60) { // свайп вниз на 60px+
-        closeModal();
-        isDragging = false;
-    }
-}, false);
-
-function closeModal() {
-    modal.classList.remove('remove-tach');
-
-}
-
-
 $('.menu-scroll a').click(function(e) {
     e.preventDefault();
 
