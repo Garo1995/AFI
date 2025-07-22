@@ -85,9 +85,15 @@
 
 
 
+    .floor-selection-menu {
+        right: 45px;
+        top: 30px;
+    }
 
-
-
+    .logo-floor {
+        top: 30px;
+        left: 45px;
+    }
 }
 @media (max-width: 1799px){
     .office-green-fon {
@@ -170,8 +176,8 @@
         margin-top: 80px;
     }
     .floor-box {
-        left: 40px;
-        top: 140px;
+        left: 29px;
+        top: 130px;
         max-width: 390px;
         gap: 30px;
         padding: 30px;
@@ -215,9 +221,7 @@
     .office-green-fon {
         border-radius: 32px;
     }
-    .floor-selection-fon {
-        margin-top: -28px;
-    }
+
 
     .construct-progress {
         padding: 40px 0 0;
@@ -435,14 +439,24 @@
     }
     .floor-box {
         left: 30px;
-        top: 130px;
+        top: 119px;
         border-radius: 24px;
         padding: 30px;
         max-width: 373px;
-        gap: 30px;
+        gap: 22px;
+    }
+    .floor-price span {
+        font-size: 22px;
+        line-height: 26px;
+    }
+    .floor-box strong {
+        font-size: 32px;
     }
     .floor-box strong {
         font-size: 38px;
+    }
+    .floor-card-info {
+        gap: 18px;
     }
     .offices-business-box:before {
         border-radius: 24px;

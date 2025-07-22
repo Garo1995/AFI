@@ -780,7 +780,7 @@ p{
 
 }
 .floor-main-photo img{
-    border-radius: 40px 40px 15px 15px;
+    border-radius: 40px 40px 0 0;
 }
 
 
@@ -884,12 +884,12 @@ p{
     background: #262B31CC;
     max-width: 498px;
     width: 100%;
-    gap: 48px;
+    gap: 38px;
     border-radius: 40px;
     padding: 40px;
     position: absolute;
     left: 60px;
-    top: 254px;
+    top: 130px;
     z-index: 9;
 }
 .floor-box .btn-white{
@@ -930,7 +930,7 @@ p{
     margin-top: 8px;
 }
 .floor-selection-fon{
-    margin-top: -38px;
+    margin-top: 0;
     backdrop-filter: blur(48px);
     box-shadow: 0px 0px 68px 0px #FFFFFF0D inset;
     border-radius: 0 0 40px 40px;
