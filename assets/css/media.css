@@ -82,9 +82,7 @@
     .floor-plan-fon {
         padding: 80px 0 0;
     }
-    .head-menu {
-        right: 40px;
-    }
+
 
 
 
@@ -333,12 +331,14 @@
         gap: 16px;
     }
     .offices-business-box {
-        height: 212px;
         padding: 20px;
     }
     .offices-business-text {
         padding: 20px 0;
         margin-top: 23px;
+    }
+    .leaders-photo {
+        height: 226px;
     }
 }
 
@@ -663,6 +663,9 @@
     }
     .offices-business-box:hover{
         width: 49%;
+    }
+    .offices-business-info {
+        max-width: 590px;
     }
     .offices-business-info {
         margin-top: 6px;
@@ -1113,10 +1116,7 @@
         gap: 8px;
         max-width: 216px;
     }
-    .head-menu {
-        top: 75px;
-        right: 8px;
-    }
+
     .construct-card-name h4 {
         font-size: 20px;
     }
@@ -1478,7 +1478,6 @@
 
     .office-station-slider {
         border-radius: 24px;
-        height: 166px;
     }
     .office-station-fon .office-pagination {
         bottom: 20px;
@@ -2103,8 +2102,13 @@
     #construction{
         padding-bottom: 15px;
     }
-
-
+    .card-stack{
+        display: none;
+    }
+    .office-station-fon{
+        display: block;
+        width: 100%;
+    }
 
 }
 @media (max-width: 767px){

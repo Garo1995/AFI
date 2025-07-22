@@ -57,9 +57,9 @@ p{
 
 
 
-#fullpage{
-    z-index: 111;
-}
+/*#fullpage{*/
+/*    z-index: 111;*/
+/*}*/
 .at-floor{
     z-index: 0;
 }
@@ -134,26 +134,9 @@ p{
     line-height: 26px;
     color: #FFFFFF;
 }
-
-.office-station-fon{
-    position: relative;
-    max-width: 360px;
-    width: 100%;
-}
-
-.office-station-slider{
-    width: 100%;
-    border-radius: 40px;
-    z-index: 2;
-    height: 236px;
-}
-
-
 .office-station-box{
-    border-radius: 40px;
-    padding: 40px 40px 68px;
-    background: #FFFFFF;
-    height: 236px;
+    transition: 0.3s;
+    opacity: 0;
 }
 .office-station-box h4{
     max-width: 240px;
@@ -163,6 +146,103 @@ p{
     color: #262B31;
     margin-top: 8px;
 }
+
+
+
+
+
+.card-stack {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 360px;
+
+}
+.cards-body{
+    max-width: 360px;
+    position: relative;
+    z-index: 2;
+    height: 236px;
+    width: 100%;
+}
+
+.card {
+    position: absolute;
+    border-radius: 40px;
+    padding: 40px 40px 68px;
+    background: #FFFFFF;
+    height: 236px;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+    transition:
+            transform 0.5s ease,
+            opacity 0.0s ease;
+}
+
+.card {
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card.active {
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
+}
+.card.active .office-station-box{
+    opacity: 1;
+}
+.card.prev {
+    z-index: 5;
+    opacity: 0.6;
+}
+
+.card.prev2 {
+    z-index: 3;
+    opacity: 0.4;
+}
+
+
+.scrollbar {
+    width: 280px;
+    height: 4px;
+    background: #F4F4F4;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 2px;
+    z-index: 11;
+    bottom: 40px;
+    left: 40px;
+}
+
+.scrollbar-fill {
+    width: 0;
+    height: 100%;
+    background: #C49D76;
+    transition: width 0.4s ease;
+}
+
+
+
+.office-station-fon{
+    display: none;
+    position: relative;
+}
+
+
+
+.office-station-fon .office-station-box{
+    border-radius: 24px;
+    padding: 24px 24px 44px;
+    background: #FFFFFF;
+    opacity: 1;
+}
+
+
 .office-station-fon .office-pagination{
     bottom: 40px;
     height: 4px;
@@ -171,7 +251,6 @@ p{
     justify-content: center;
     top: auto;
     left: 0;
-    flex-direction: row-reverse;
 }
 .swiper-pagination-bullet {
     width: 50px;
@@ -186,11 +265,6 @@ p{
 .swiper-pagination-bullet-active {
     background: #C49D76;
 }
-
-
-
-
-
 
 
 
@@ -457,7 +531,7 @@ p{
     position: relative;
     z-index: 1;
     transition: 0.4s;
-    max-width: 343px;
+    max-width: 300px;
     width: 100%;
 }
 .offices-business-box h4{
@@ -500,7 +574,9 @@ p{
     color: #2C333B;
 }
 
-
+.positon-rel{
+    position: relative;
+}
 
 
 
@@ -969,6 +1045,9 @@ p{
 }
 .sec-floor-head{
     transform: translateY(-106px);
+}
+#fullpage{
+    z-index: 111;
 }
 .all-news-none{
     display: none;

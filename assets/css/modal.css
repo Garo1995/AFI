@@ -257,6 +257,21 @@
 }
 
 
+.modal-map-box{
+    width: 100%;
+    background: #FFFFFF;
+    position: relative;
+    padding: 0;
+    height: 100%;
+
+}
+#modal-map{
+    width: 100%;
+    height: 100%;
+}
+#all-map .modal-content{
+    padding: 0;
+}
 
 @media (max-width: 767px){
     .modal-form {

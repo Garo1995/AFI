@@ -63,6 +63,8 @@ $('.menu-open-news').on('click', function () {
     $('.all-news-cnt').addClass('all-news-opened');
     $('.construct-prog-rel').addClass('construct-prog-none');
     $('.btn-line').removeClass('btn-line-act');
+    let text = $(this).text();
+    $('.construct-title').text(text);
 })
 
 
@@ -82,6 +84,8 @@ $('.construction-xod').on('click', function () {
     $('.all-news-cnt').removeClass('all-news-opened');
     $('.construct-prog-rel').removeClass('construct-prog-none');
     $('.btn-news').removeClass('btn-line-act');
+    let text = $(this).text();
+    $('.construct-title').text(text);
 })
 
 
@@ -248,21 +252,15 @@ let officeSwiper = new Swiper(".office-station-slider", {
     spaceBetween: 5,
     loop: true,
     speed: 1000,
-    direction: "vertical",
-    centeredSlides: true,
-
-
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     pagination: {
         el: ".office-pagination",
         clickable: true,
     }
 });
-
-
-// Автопрокрутка вниз (то есть вызов предыдущего слайда)
-setInterval(() => {
-    officeSwiper.slidePrev(); // вместо slideNext
-}, 2500);
 
 
 

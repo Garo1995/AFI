@@ -125,27 +125,32 @@ class YandexMapConstructor {
     }
 
     changeCategory(category) {
-        if (!this.myMap || !window.ymaps) return;
+        if(category){
+            if (!this.myMap || !window.ymaps) return;
 
-        const isSame = this.selectedCategory.some(x => x.title === category.title);
-        this.myMap.geoObjects.removeAll();
+            const isSame = this.selectedCategory.some(x => x.title === category.title);
+            this.myMap.geoObjects.removeAll();
 
-        if (isSame) {
-            if (this.isMultiSelect) {
-                this.selectedCategory = this.selectedCategory.filter(x => x.title !== category.title);
+            if (isSame) {
+                if (this.isMultiSelect) {
+                    this.selectedCategory = this.selectedCategory.filter(x => x.title !== category.title);
+                } else {
+                    this.selectedCategory = []
+                }
             } else {
-                this.selectedCategory = []
+                if (this.isMultiSelect) {
+                    this.selectedCategory.push(category)
+                } else {
+                    this.selectedCategory = [category]
+                }
             }
-        } else {
-            if (this.isMultiSelect) {
-                this.selectedCategory.push(category)
-            } else {
-                this.selectedCategory = [category]
-            }
+
+            this.#generateMarkersList()
+            return this.selectedCategory
+        }else{
+            this.selectedCategory = []
         }
-
-        this.#generateMarkersList()
-        return this.selectedCategory
+        return []
     }
 
     zoomIn() {

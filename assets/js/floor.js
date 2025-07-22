@@ -80,7 +80,6 @@ let layoutSwiper = new Swiper(".layout-number-slider", {
     spaceBetween: 10,
     slidesPerView: 5,
     direction: "vertical",
-    freeMode: true,
     centeredSlides: true,
     loop: true,
     navigation: {
@@ -117,3 +116,114 @@ let swiper2 = new Swiper(".select-layout-slider", {
         swiper: layoutSwiper,
     },
 });
+
+
+
+
+
+
+
+
+
+
+const cards = document.querySelectorAll('.card');
+let current = 0;
+
+// Обновление классов и визуальных состояний
+function updateClasses() {
+    const total = cards.length;
+
+    cards.forEach((card, i) => {
+        const indexDiff = (i - current + total) % total;
+
+        let top = '0';
+        let opacity = 0;
+        let zIndex = 0;
+
+        if (indexDiff === 0) {
+            top = '0';
+            opacity = 1;
+            zIndex = 3;
+            card.classList.add('active');
+        } else if (indexDiff === 1) {
+            top = '-30px';
+            opacity = 0.6;
+            zIndex = 2;
+            card.classList.remove('active');
+        } else if (indexDiff === 2) {
+            top = '-60px';
+            opacity = 0.4;
+            zIndex = 1;
+            card.classList.remove('active');
+        } else {
+            card.classList.remove('active');
+        }
+
+        const fill = document.querySelector('.scrollbar-fill');
+        const visibleCount = 3;
+        const progress = ((current % (cards.length - visibleCount + 1)) / (cards.length - visibleCount)) * 100;
+        fill.style.width = `${progress}%`;
+
+        gsap.to(card, {
+            top: top,
+            opacity: opacity,
+            zIndex: zIndex,
+            duration: 0.6,
+            ease: "power4.out"
+        });
+    });
+}
+
+// Автопрокрутка
+const autoPlayInterval = 2000;
+let autoPlay = setInterval(() => {
+    current = (current + 1) % cards.length;
+    updateClasses();
+}, autoPlayInterval);
+
+// === 🖱️ Управление мышкой (desktop) ===
+let mouseStartY = null;
+document.addEventListener('mousedown', (e) => {
+    mouseStartY = e.clientY;
+});
+document.addEventListener('mouseup', (e) => {
+    if (mouseStartY !== null) {
+        const diff = e.clientY - mouseStartY;
+        if (diff > 30) {
+            // свайп вниз
+            current = (current - 1 + cards.length) % cards.length;
+            updateClasses();
+        } else if (diff < -30) {
+            // свайп вверх
+            current = (current + 1) % cards.length;
+            updateClasses();
+        }
+        mouseStartY = null;
+    }
+});
+
+// === 📱 Управление касанием (mobile) ===
+let touchStartY = null;
+document.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+});
+document.addEventListener('touchend', (e) => {
+    if (touchStartY !== null) {
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchEndY - touchStartY;
+
+        if (diff > 30) {
+            // свайп вниз
+            current = (current - 1 + cards.length) % cards.length;
+            updateClasses();
+        } else if (diff < -30) {
+            // свайп вверх
+            current = (current + 1) % cards.length;
+            updateClasses();
+        }
+
+        touchStartY = null;
+    }
+});
+
+updateClasses();
