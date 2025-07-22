@@ -656,13 +656,16 @@
         flex-wrap: wrap;
     }
     .offices-business-box {
-        height: 250px;
-        padding: 25px;
+        height: 220px;
+        padding: 25px 20px 20px;
         width: 49%;
         border-radius: 32px;
     }
     .offices-business-box:hover{
         width: 49%;
+    }
+    .offices-business-box h4 br{
+        display: none;
     }
     .offices-business-info {
         max-width: 590px;
@@ -1544,6 +1547,9 @@
     .offices-business-fon {
         padding-top: 12px;
 
+    }
+    .offices-business-box h4 br{
+        display: block;
     }
     .facility-leaders-saw{
         padding-bottom: 24px;
