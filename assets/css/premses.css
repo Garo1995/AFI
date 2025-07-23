@@ -1,0 +1,78 @@
+
+
+.premises-card{
+    max-width: 595px;
+    width: 100%;
+    margin: 0 auto;
+}
+.premises-card-head{
+    background: #47515D;
+    padding: 24px;
+}
+
+.logo-premises{
+    width: 95px;
+}
+.premises-card-flex{
+    margin-top: 16px;
+    gap: 33px;
+    width: 100%;
+}
+.premises-card-info{
+    max-width: 136px;
+    width: 100%;
+}
+.premises-card-info:first-child{
+    max-width: 164px;
+}
+.premises-card-info span{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+.premises-card-info p{
+    margin-top: 4px;
+    color: #FFFFFF99;
+    font-weight: 300;
+    font-size: 8px;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+
+.premises-card-cnt h3, .premises-card-cnt strong{
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 34px;
+    color: #2C333B;
+
+}
+.premises-card-svg{
+    max-width: 400px;
+    width: 100%;
+    margin: 24px 0 32px;
+}
+
+.premises-card-pad{
+    padding: 56px 38px 130px;
+}
+.premises-square-flex{
+    border-top: 1px solid #2C333B1A;
+    gap: 72px;
+    margin-top: 16px;
+    padding-top: 24px;
+}
+.premises-square-name span{
+    color: #2C333B;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+}
+.premises-square-name p{
+    color: #2C333B;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 100%;
+    margin-top: 8px;
+}

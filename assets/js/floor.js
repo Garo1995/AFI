@@ -68,11 +68,7 @@ $('.pop-office').on('click', function() {
 })
 
 
-$('.back-select-layout').on('click', function() {
-    $('.select-layout').removeClass('select-layout-opened');
-    $('body').removeClass('body-fixed');
 
-})
 
 
 
@@ -126,7 +122,13 @@ let swiper2 = new Swiper(".select-layout-slider", {
 
 
 
+
+
+
 const cards = document.querySelectorAll('.card');
+const fill = document.querySelector('.scrollbar-fill');
+const visibleCount = 3;
+
 let current = 0;
 
 // Обновление классов и визуальных состояний
@@ -159,11 +161,6 @@ function updateClasses() {
             card.classList.remove('active');
         }
 
-        const fill = document.querySelector('.scrollbar-fill');
-        const visibleCount = 3;
-        const progress = ((current % (cards.length - visibleCount + 1)) / (cards.length - visibleCount)) * 100;
-        fill.style.width = `${progress}%`;
-
         gsap.to(card, {
             top: top,
             opacity: opacity,
@@ -172,6 +169,11 @@ function updateClasses() {
             ease: "power4.out"
         });
     });
+
+    // ✅ Исправление прогресса полоски
+    const maxSteps = cards.length;
+    const progress = (current / (maxSteps - 1)) * 100;
+    fill.style.width = `${progress}%`;
 }
 
 // Автопрокрутка
@@ -190,11 +192,9 @@ document.addEventListener('mouseup', (e) => {
     if (mouseStartY !== null) {
         const diff = e.clientY - mouseStartY;
         if (diff > 30) {
-            // свайп вниз
             current = (current - 1 + cards.length) % cards.length;
             updateClasses();
         } else if (diff < -30) {
-            // свайп вверх
             current = (current + 1) % cards.length;
             updateClasses();
         }
@@ -213,11 +213,9 @@ document.addEventListener('touchend', (e) => {
         const diff = touchEndY - touchStartY;
 
         if (diff > 30) {
-            // свайп вниз
             current = (current - 1 + cards.length) % cards.length;
             updateClasses();
         } else if (diff < -30) {
-            // свайп вверх
             current = (current + 1) % cards.length;
             updateClasses();
         }

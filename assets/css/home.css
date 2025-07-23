@@ -75,7 +75,7 @@ p{
     background-size: cover;
     width: 100%;
     border-radius: 40px;
-    padding: 70px 0 60px;
+    padding: 88px 0 60px;
 }
 .office-green-text{
     max-width: 620px;
@@ -224,6 +224,7 @@ p{
     height: 100%;
     background: #C49D76;
     transition: width 0.4s ease;
+    min-width: 15px;
 }
 
 
@@ -290,7 +291,7 @@ p{
 .business-center-fl{
     position: relative;
     z-index: 1;
-    padding-top: 60px;
+    padding-top: 80px;
     gap: 40px;
 }
 
@@ -352,7 +353,7 @@ p{
     backdrop-filter: blur(48px);
     box-shadow: 0px 0px 68px 0px #FFFFFF0D inset;
     border-radius: 0 0 40px 40px;
-    padding: 30px 0;
+    padding: 35px 0;
 }
 
 .peaceful-place h3{
@@ -362,7 +363,7 @@ p{
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 40px;
-    padding-top: 70px;
+    padding-top: 80px;
     height: 800px;
     display: flex;
     flex-direction: column;
@@ -459,7 +460,7 @@ p{
 .offices-business-fon{
     background: #FFFFFF;
     border-radius: 40px;
-    padding-top: 60px;
+    padding-top: 106px;
 }
 
 .offices-business-title h2{
@@ -584,7 +585,7 @@ p{
 .facility-leaders-fon{
     background: #2C333B;
     border-radius: 40px;
-    padding-top: 60px;
+    padding-top: 82px;
 
 }
 .facility-leaders-cnt{
@@ -636,7 +637,7 @@ p{
 
 .technologies-flex{
     gap: 40px;
-    padding-bottom: 60px;
+    padding-bottom: 98px;
 }
 .technologies-info{
     max-width: 760px;
@@ -688,6 +689,9 @@ p{
     padding: 60px 60px 124px;
     gap: 30px;
     border-radius: 60px;
+}
+.your-investment{
+    padding-top: 98px;
 }
 
 .investment-info{
@@ -915,6 +919,9 @@ p{
 .floor-card-info{
     gap: 32px;
 }
+.floor-price-mobile{
+    display: none;
+}
 .floor-price span{
     color: #FFFFFF;
     font-weight: 600;
@@ -942,7 +949,7 @@ p{
 }
 .floor-selection-cnt{
     gap: 40px;
-    padding: 20px 0;
+    padding: 40px 0;
 }
 .floor-selection-count ul{
     gap: 11px;
@@ -1044,7 +1051,9 @@ p{
     width: 100%;
 }
 .sec-floor-head{
-    transform: translateY(-106px);
+    transform: translateY(-118px);
+    padding-top: 12px;
+    background: #FFFFFF;
 }
 #fullpage{
     z-index: 111;
@@ -1210,6 +1219,7 @@ p{
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    min-height: 95px;
 }
 .swiper-button-lock {
     display: flex;
@@ -1352,7 +1362,7 @@ footer{
     padding-bottom: 30px;
 }
 .footer-menu{
-    margin-top: 40px;
+    margin-top: 60px;
     border-bottom: 1px solid #FFFFFF33;
     position: relative;
     z-index: 1;
@@ -1379,7 +1389,7 @@ footer{
     position: relative;
 }
 .footer-policy{
-    margin-top: 25px;
+    margin-top: 35px;
 }
 .footer-policy p{
     font-weight: 300;
@@ -1578,14 +1588,16 @@ footer{
 .sort-floor{
     position: relative;
     z-index: 1;
-    padding: 14px 40px 14px 24px;
+    padding: 14px 46px 14px 24px;
     cursor: pointer;
     transition: 0.3s;
     background: #FFFFFF;
     border: 1px solid #9A9A9A;
-    max-width: 290px;
+    max-width: max-content;
     width: 100%;
     border-radius: 50px;
+    gap: 12px;
+    white-space: nowrap;
 }
 .icon-filter-arrow{
     content: url("../img/filter-arrow.svg");
@@ -1596,7 +1608,7 @@ footer{
     line-height: 100%;
     text-align: center;
     display: block;
-    width: 202px;
+    width: 100%;
     color: #47515D;
 }
 .sort-floor:after{
@@ -1854,10 +1866,15 @@ footer{
 .floor-room-fon{
     backdrop-filter: blur(10px);
     background: #262B31CC;
-
     width: 100%;
     border-radius: 40px;
     padding: 40px;
+}
+.floor-room-fon:hover .arrow-top-rig img{
+    filter: brightness(0) saturate(100%) invert(1);
+}
+.floor-room-fon:hover .arrow-top-rig{
+    background: #C49D76;
 }
 .floor-room-price strong{
     color: #FFFFFF;
@@ -1925,6 +1942,9 @@ footer{
     max-width: 847px;
     width: 100%;
 }
+.floor-room-svg svg{
+    height: auto;
+}
 .floor-plan-head .container-lage{
     position: relative;
 }
@@ -1957,19 +1977,16 @@ footer{
 .select-layout-svg svg{
     width: 100%;
     height: 476px;
-    object-fit: cover;
 }
 .select-layout-svg img{
     width: 100%;
     height: 476px;
-    object-fit: cover;
 }
 .select-layout-number{
     width: 48px;
     gap: 40px;
     position: relative;
 }
-
 
 .select-layout {
     width: 100%;
@@ -2071,19 +2088,19 @@ footer{
     line-height: 100%;
     opacity: 0.20;
 }
-.swiper-slide-thumb-active .number-slider-count{
-    opacity: 1;
-    font-size: 32px;
-}
+
 .swiper-slide-prev .number-slider-count{
     font-size: 24px;
     opacity: 0.40;
-
 }
 .swiper-slide-next .number-slider-count{
     font-size: 24px;
     opacity: 0.40;
+}
 
+.swiper-slide-active .number-slider-count{
+    opacity: 1;
+    font-size: 32px;
 }
 
 .construct-prog-mob{

@@ -44,6 +44,20 @@ $(window).on('click', function (e) {
 
 $('.head-menu a').on('click', function () {
     $('.head-menu').removeClass('menu-opened');
+    $('.interactive-modal').removeClass('interactive-modal-open');
+    $('body').removeClass('body-fixed');
+    $('.floor-plan').removeClass('floor-plan-opened');
+    $('.select-layout').removeClass('select-layout-opened');
+    $('.floor-room-boxis').removeClass('floor-room-opened');
+
+})
+
+$('.close-all-plan').on('click', function () {
+    $('body').removeClass('body-fixed');
+    $('.floor-plan').removeClass('floor-plan-opened');
+    $('.floor-room-boxis').removeClass('floor-room-opened');
+    $('.floor-plan').removeClass('floor-plan-none');
+
 })
 
 
@@ -113,6 +127,11 @@ $('.back-interactive').on('click', function () {
 
 
 
+$('.back-select-layout').on('click', function() {
+    $('.select-layout').removeClass('select-layout-opened');
+    $('body').removeClass('body-fixed');
+
+})
 
 
 $('.sort-floor').on('click', function (e) {
@@ -130,6 +149,8 @@ $(window).on('click', function (e) {
 
 $('.sort-check-radio').on('click', function () {
     $('.sort-floor-abs').removeClass('sort-floor-abs-act');
+    let textChack = $(this).text();
+    $('.sort-floor-title').text(textChack);
 })
 
 
@@ -138,6 +159,7 @@ $('.sort-check-radio').on('click', function () {
 $('.select-param').on('click', function () {
     $('body').addClass('body-fixed');
     $('.floor-plan').addClass('floor-plan-opened');
+
 })
 
 

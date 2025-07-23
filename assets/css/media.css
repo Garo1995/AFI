@@ -164,7 +164,7 @@
         padding-top: 50px;
     }
     .investment-photo {
-        padding: 50px 40px 70px;
+        padding: 65px 40px 80px;
     }
     .floor-selection-count ul {
         gap: 8px;
@@ -257,9 +257,130 @@
     .select-layout-main {
         height: 80%;
     }
+    .found-cnt-info {
+        padding: 24px 20px 5px;
+    }
+}
+@media (min-width: 1600px ) and (max-height: 930px){
+    h1 {
+        font-size: 110px;
+    }
+    .office-green-fon {
+        padding: 55px 0 50px;
+    }
+    .office-station {
+        margin-top: 190px;
+    }
+
+    .your-investment {
+        padding-top: 58px;
+    }
+    .business-center-fl {
+        padding-top: 50px;
+    }
+    .peaceful-place {
+        margin-top: 30px;
+        padding: 25px 0;
+    }
+    .business-center-box {
+        height: 265px;
+        padding: 35px;
+    }
+    .business-center-cnt {
+        margin-top: 126px;
+    }
+    .pharmacies-shops {
+        padding-top: 60px;
+        height: 715px;
+    }
+    .offices-business-fon {
+        padding-top: 40px;
+    }
+    .offices-business-text {
+        padding: 50px 0;
+    }
+    .facility-leaders-fon {
+        padding-top: 60px;
+    }
+    h3 {
+        font-size: 30px;
+        line-height: 113%;
+    }
+    .technologies-photo {
+        max-width: 850px;
+    }
+    .facility-leaders-box {
+        height: 263px;
+    }
+
+    .leaders-photo {
+        height: 263px;
+    }
+    .facility-leaders-title {
+        padding: 32px 0;
+    }
+    .technologies-flex {
+        padding-bottom: 50px;
+    }
+    .investment-photo {
+        padding: 60px 60px 97px;
+    }
+    .project-pic {
+        padding: 40px;
+    }
+    .floor-selection-cnt {
+        padding: 25px 0;
+    }
+    .floor-selection-fon {
+        margin-top: -10px;
+    }
+    .construct-progress {
+        padding: 40px 0 0;
+    }
+    .construct-desc-slider {
+        height: 545px;
+    }
+    .construct-card {
+        height: 545px;
+    }
+    .construct-info {
+        padding: 23px 0;
+    }
+    .all-news-box {
+        height: 243px;
+        padding: 25px 20px;
+    }
+
+    .footer-menu {
+        margin-top: 30px;
+    }
+    .footer-main {
+        padding: 40px 0 30px;
+    }
+    .footer-policy {
+        margin-top: 20px;
+    }
+    .sales-office {
+        gap: 27px;
+    }
+
+    .footer-map {
+        max-width: 935px;
+    }
+    .footer-map-circ {
+        top: 183px;
+        right: 193px;
+    }
+
 }
 
-@media (max-width: 1699px ) and (max-height: 850px) {
+@media (min-width: 1399px ) and (max-height: 799px) {
+    .technologies-flex {
+        padding-bottom: 38px;
+    }
+    .facility-leaders-fon {
+        padding-top: 40px;
+    }
     .pharmacies-shops {
         height: 632px;
         padding-top: 41px;
@@ -287,9 +408,7 @@
     .business-center-cnt {
         margin-top: 66px;
     }
-    .facility-leaders-fon {
-        padding-top: 30px;
-    }
+
     .facility-leaders-box {
         padding: 24px;
         height: 226px;
@@ -345,6 +464,29 @@
     .leaders-photo {
         height: 226px;
     }
+    .floor-selection-cnt {
+        padding: 20px 0;
+    }
+    .construct-desc-slider {
+        height: 490px;
+    }
+    .construct-card {
+        height: 490px;
+    }
+    .all-news-box p {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .footer-box {
+        max-width: 545px;
+    }
+    .fp-table {
+        margin-top: 110px;
+    }
+    .footer-policy {
+        margin-top: 20px;
+    }
 }
 
 @media (max-width: 1599px){
@@ -395,6 +537,7 @@
     .all-news-box p {
         margin-top: 12px;
         margin-bottom: 12px;
+        min-height: 91px;
     }
     .technologies-photo img {
         width: 100%;
@@ -412,7 +555,6 @@
         padding-top: 100px;
     }
     .investment-photo {
-        padding: 50px 40px 80px;
         background-position: center;
     }
     .facility-leaders-title {
@@ -598,7 +740,7 @@
         right: 20px;
     }
     .footer-main {
-        padding: 40px 0 30px;
+        padding: 40px 0 24px;
         border-radius: 32px;
     }
     .btn {
@@ -629,7 +771,7 @@
 
 
     .footer-policy {
-        margin-top: 28px;
+        margin-top: 20px;
     }
     .footer-menu ul li a {
         font-size: 14px;
@@ -662,7 +804,10 @@
         padding: 24px;
     }
     .business-center-fl {
-        padding-top: 60px;
+        padding-top: 40px;
+    }
+    .office-green-fon {
+        padding: 40px 0 40px;
     }
     .footer-box {
         gap: 14px;
@@ -706,9 +851,7 @@
     .facility-leaders-title {
         margin-top: 0;
     }
-    .investment-photo {
-        padding: 40px 30px 60px;
-    }
+
 
     .project-pic {
         padding: 30px;
@@ -924,7 +1067,7 @@
         transform: unset;
     }
     .construct-desc-slider {
-        height: 515px;
+        height: 506px;
     }
     .logo-floor{
         display: none;
@@ -935,6 +1078,10 @@
     .construct-prog-rel {
         padding-right: 70px;
     }
+    .floor-box {
+        top: 68px;
+    }
+
 
 }
 
@@ -1453,7 +1600,9 @@
     #fullpage {
         margin-top: 13px;
     }
-
+    .floor-box {
+        top: 12px;
+    }
 
 }
 @media (max-width: 1020px) {
@@ -1737,9 +1886,11 @@
         font-size: 28px;
     }
     .investment-photo {
-        padding: 40px 16px 16px;
+        padding: 85px 16px 16px;
     }
-
+    .construct-prog-rel {
+        margin-right: -20px;
+    }
     .investment-text p {
         font-size: 15px;
         line-height: 20px;
@@ -1813,7 +1964,6 @@
         background-position: -12px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
     }
     .floor-main:before{
@@ -1826,6 +1976,12 @@
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
         border-radius: 24px;
 
+    }
+    .floor-count-gap{
+        display: none;
+    }
+    .floor-price-mobile{
+        display: block;
     }
     .floor-box .select-param{
         display: none;
