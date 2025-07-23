@@ -1887,6 +1887,7 @@ footer{
     margin-top: 32px;
     border-top: 1px solid #FFFFFF;
     padding-top: 40px;
+    gap: 20px;
 }
 .floor-room-item{
     max-width: 220px;
@@ -1941,9 +1942,16 @@ footer{
 .floor-room-svg{
     max-width: 847px;
     width: 100%;
+    padding: 32px;
 }
 .floor-room-svg svg{
     height: auto;
+}
+.floor-room-qwe{
+    display: flex;
+    flex-direction: column;
+    max-width: 847px;
+    width: 100%;
 }
 .floor-plan-head .container-lage{
     position: relative;
@@ -2011,7 +2019,7 @@ footer{
     background: #FFFFFF;
     border-radius: 40px;
     padding: 60px 0 0;
-    height: 86%;
+    height: 85%;
 }
 
 .layout-number-slider{

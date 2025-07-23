@@ -1,8 +1,7 @@
 @media (max-width: 1920px){
 
     .floor-room-cnt {
-        max-width: 864px;
-        height: 592px;
+        height: 620px;
     }
     .floor-plan-fon {
         padding: 50px 0 0;
@@ -23,9 +22,8 @@
         font-size: 30px;
     }
     .layouts-back {
-        padding: 30px 0;
+        padding: 15px 0;
     }
-
     .floor-box {
         left: 40px;
         top: 200px;
@@ -46,7 +44,7 @@
     }
     .floor-room-cnt {
         max-width: 780px;
-        height: 530px;
+        height: 490px;
     }
     .floor-room-fon {
         padding: 30px;
@@ -82,8 +80,13 @@
     .floor-plan-fon {
         padding: 80px 0 0;
     }
-
-
+    .floor-room-svg {
+        max-width: 836px;
+        padding: 20px;
+    }
+    .floor-room-svg svg {
+        height: 475px;
+    }
 
     .floor-selection-menu {
         right: 45px;
@@ -183,7 +186,7 @@
         padding: 30px;
     }
     .floor-room-svg {
-        max-width: 643px;
+        max-width: 803px;
         width: 100%;
     }
     .all-news-box {
@@ -648,7 +651,10 @@
         background-position: center;
     }
     .floor-room-svg {
-        max-width: 609px;
+        max-width: 653px;
+    }
+    .floor-room-svg svg {
+        height: 462px;
     }
     .floor-room-fon {
         padding: 24px;
@@ -682,7 +688,7 @@
     }
     .select-layout-main {
         border-radius: 24px;
-        padding: 60px 0 0;
+        padding: 50px 0 0;
     }
     .facility-leaders-title {
         margin-top: 20px;
@@ -695,9 +701,7 @@
         background-position: center;
         border-radius: 24px;
     }
-    .select-layout-main {
-        padding: 40px 0 0;
-    }
+
     .construct-prog-rel {
         padding-right: 80px;
         margin-top: 0;
@@ -743,11 +747,7 @@
         padding: 40px 0 24px;
         border-radius: 32px;
     }
-    .btn {
-        font-size: 15px;
-        line-height: 17px;
-        padding: 12px 24px;
-    }
+
     .sales-office-name span {
         font-size: 17px;
         line-height: 22px;
@@ -881,20 +881,16 @@
         padding: 12px 0;
     }
     .select-layout-svg img {
-        height: 369px;
+        height: 389px;
     }
-    .select-layout-rel {
-        max-width: 500px;
-    }
+
     .select-layout-number {
         gap: 6px;
     }
     .container {
         padding: 0 20px;
     }
-    .select-layout-main {
-        padding: 32px 0 0;
-    }
+
     .pharmacies-shops {
         border-radius: 32px;
     }
@@ -909,15 +905,11 @@
     .btn-sliver {
         padding: 10px 24px 10px 16px;
     }
-    .select-layout-svg img {
-        height: 320px;
-    }
+
     .select-layout-svg svg {
         height: 320px;
     }
-    .select-layout-rel {
-        max-width: 424px;
-    }
+
     .select-layout-number .swiper-button-prev, .select-layout-number .swiper-button-next {
         width: 40px;
         height: 40px;
@@ -935,15 +927,14 @@
     }
     .floor-room {
         gap: 24px;
-        align-items: flex-start;
     }
     .on-sale-kox img {
         width: 52px;
         margin-bottom: 10px;
     }
     .floor-room-cnt {
-        max-width: 700px;
-        height: 410px;
+        max-width: 720px;
+        height: 480px;
         border-radius: 24px;
         background-position: center;
     }
@@ -986,15 +977,12 @@
     }
 
     .select-layout-box {
-        max-width: 652px;
+        max-width: 752px;
     }
     .on-sale-kox{
         margin-top: -18px;
     }
 
-    .select-layout-main {
-        padding: 22px 0 0;
-    }
     .swiper-slide-thumb-active .number-slider-count {
         font-size: 26px;
     }
@@ -1007,11 +995,9 @@
     }
     .sort-floor span {
         font-size: 14px;
-        width: 164px;
     }
     .sort-floor {
-        padding: 11px 21px 11px 21px;
-        max-width: 247px;
+        padding: 11px 41px 11px 21px;
     }
     .sort-floor:after {
         right: 20px;
@@ -1081,7 +1067,15 @@
     .floor-box {
         top: 68px;
     }
-
+    .btn {
+        font-size: 15px;
+        line-height: 17px;
+        padding: 12px 24px;
+    }
+    .floor-room-svg {
+        max-width: 600px;
+        padding: 0;
+    }
 
 }
 
@@ -1172,12 +1166,10 @@
         width: calc(33.333333% - 12px);
     }
     .sort-floor {
-        padding: 12px 28px 12px 18px;
-        max-width: 250px;
+        padding: 12px 36px 12px 18px;
     }
     .sort-floor span {
         font-size: 14px;
-        width: 162px;
     }
     .sort-floor:after {
         right: 19px;
@@ -1216,7 +1208,7 @@
         line-height: 20px;
     }
     .floor-room-svg {
-        max-width: 482px;
+        max-width: 543px;
     }
     .floor-room-item {
         max-width: 180px;
@@ -1481,11 +1473,14 @@
     }
     .select-layout-box{
         background: #F4F4F4;
-        max-width: 500px;
+        max-width: 530px;
         border-radius: 24px;
         padding: 32px 16px;
     }
-
+    .floor-room-cnt {
+        max-width: 530px;
+        height: 444px;
+    }
     .select-layout-svg svg {
         height: 258px;
     }
@@ -1776,6 +1771,19 @@
     .icon-minus {
         width: 24px;
         height: 24px;
+    }
+
+
+    .floor-room-boxis .floor-room-main {
+        height: calc(100vh - 86px);
+    }
+    .floor-room-main {
+        height: calc(100vh - 86px);
+
+    }
+    .select-layout-main {
+        height: calc(100vh - 86px);
+
     }
     .icon-location {
         width: 24px;
@@ -2208,6 +2216,7 @@
     .floor-room {
         gap: 16px;
         flex-direction: column-reverse;
+        align-items: center;
     }
     .floor-plan-line{
         display: flex;
