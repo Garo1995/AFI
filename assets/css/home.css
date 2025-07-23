@@ -374,6 +374,9 @@ p{
 
 .accordion{
     gap: 16px;
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
 }
 .accordion-box{
     max-width: 600px;
@@ -1315,7 +1318,7 @@ p{
     text-align: left;
 
 }
-.sales-office-name span{
+.sales-office-name span, .sales-office-name a{
     color: #FFFFFF;
     font-weight: 400;
     font-size: 22px;

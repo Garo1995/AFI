@@ -442,6 +442,10 @@
         font-size: 17px;
         line-height: 18px;
     }
+    .sales-office-name a {
+        font-size: 17px;
+        line-height: 18px;
+    }
     .sales-office {
         gap: 10px;
     }
@@ -749,6 +753,10 @@
     }
 
     .sales-office-name span {
+        font-size: 17px;
+        line-height: 22px;
+    }
+    .sales-office-name a {
         font-size: 17px;
         line-height: 22px;
     }

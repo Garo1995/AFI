@@ -120,18 +120,12 @@ let swiper2 = new Swiper(".select-layout-slider", {
 
 
 
-
-
-
-
-
 const cards = document.querySelectorAll('.card');
 const fill = document.querySelector('.scrollbar-fill');
-const visibleCount = 3;
-
 let current = 0;
+let autoPlay;
 
-// Обновление классов и визуальных состояний
+// === Функция обновления карточек ===
 function updateClasses() {
     const total = cards.length;
 
@@ -170,20 +164,34 @@ function updateClasses() {
         });
     });
 
-    // ✅ Исправление прогресса полоски
-    const maxSteps = cards.length;
-    const progress = (current / (maxSteps - 1)) * 100;
+    const progress = (current / (cards.length - 1)) * 100;
     fill.style.width = `${progress}%`;
 }
 
-// Автопрокрутка
-const autoPlayInterval = 2000;
-let autoPlay = setInterval(() => {
-    current = (current + 1) % cards.length;
-    updateClasses();
-}, autoPlayInterval);
+// === Автопрокрутка ===
+function startAutoPlay() {
+    stopAutoPlay(); // чтобы не было двух интервалов
+    autoPlay = setInterval(() => {
+        current = (current + 1) % cards.length;
+        updateClasses();
+    }, 2000);
+}
 
-// === 🖱️ Управление мышкой (desktop) ===
+function stopAutoPlay() {
+    if (autoPlay) clearInterval(autoPlay);
+}
+
+// === Наведение мышки: остановка / запуск ===
+cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        stopAutoPlay();
+    });
+    card.addEventListener('mouseleave', () => {
+        startAutoPlay();
+    });
+});
+
+// === Управление мышкой (desktop) ===
 let mouseStartY = null;
 document.addEventListener('mousedown', (e) => {
     mouseStartY = e.clientY;
@@ -193,35 +201,32 @@ document.addEventListener('mouseup', (e) => {
         const diff = e.clientY - mouseStartY;
         if (diff > 30) {
             current = (current - 1 + cards.length) % cards.length;
-            updateClasses();
         } else if (diff < -30) {
             current = (current + 1) % cards.length;
-            updateClasses();
         }
+        updateClasses();
         mouseStartY = null;
     }
 });
 
-// === 📱 Управление касанием (mobile) ===
+// === Управление касанием (mobile) ===
 let touchStartY = null;
 document.addEventListener('touchstart', (e) => {
     touchStartY = e.touches[0].clientY;
 });
 document.addEventListener('touchend', (e) => {
     if (touchStartY !== null) {
-        const touchEndY = e.changedTouches[0].clientY;
-        const diff = touchEndY - touchStartY;
-
+        const diff = e.changedTouches[0].clientY - touchStartY;
         if (diff > 30) {
             current = (current - 1 + cards.length) % cards.length;
-            updateClasses();
         } else if (diff < -30) {
             current = (current + 1) % cards.length;
-            updateClasses();
         }
-
+        updateClasses();
         touchStartY = null;
     }
 });
 
+// === Инициализация ===
 updateClasses();
+startAutoPlay(); // 🟢 запускаем сразу!
