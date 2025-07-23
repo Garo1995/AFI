@@ -4,8 +4,9 @@ header{
     position: fixed;
     left: 0;
     z-index: 91;
-    transition: transform 0.1s ease;
+    transition: transform 0.4s ease;
     opacity: 1;
+    transform: translateY(0);
 
 }
 .head-fon-fix{
@@ -14,14 +15,50 @@ header{
     top: 20px;
     left: 0;
     width: 100%;
-    transition: transform 0.1s ease;
+    transition: transform 0.4s ease;
+    opacity: 1;
+    transform: translateY(0);
+
+}
+/* Прячется вверх */
+.header.hide-up {
+    transform: translateY(-100%);
+    opacity: 0;
+
+}
+
+/* Прячется вниз */
+.header.hide-down {
+    transform: translateY(100%);
+    opacity: 0;
+
+}
+
+/* Появляется сверху */
+.header.from-top {
+    transform: translateY(-100%);
     opacity: 1;
 
 }
-.header.hide-header {
-    transform: translateY(120%);
-    opacity: 0;
+.header.from-top.show {
+    transform: translateY(0);
+    opacity: 1;
+
 }
+
+/* Появляется снизу */
+.header.from-bottom {
+    transform: translateY(100%);
+    opacity: 1;
+
+}
+.header.from-bottom.show {
+    transform: translateY(0);
+    opacity: 1;
+
+}
+
+
 
 #fp-nav{
     display: none!important;

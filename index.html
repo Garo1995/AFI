@@ -3090,6 +3090,10 @@
 </script>
 <script>
     if (window.innerWidth >= 1399) {
+
+        let lastScrollDirection = null;
+
+
         new fullpage('#fullpage', {
             licenseKey: 'gplv3-license',
             autoScrolling: true,
@@ -3106,11 +3110,24 @@
             scrollOverflow: true,
 
 
-            onLeave: function(origin, destination, direction){
-                $('.header').addClass('hide-header');
+
+            onLeave: function(origin, destination, direction) {
+                const $header = $('.header');
+                scrollDirection = direction;
+
+                // Удаляем все старые состояния
+                $header.removeClass('from-top from-bottom show hide-up hide-down');
+
+                // Прячем в нужную сторону
+                if (direction === 'down') {
+                    $header.addClass('hide-down');
+                } else {
+                    $header.addClass('hide-up');
+                }
             },
 
-            afterLoad: function (origin, destination, direction) {
+            afterLoad: function(origin, destination, direction) {
+
                 const sectionAnchor = destination.anchor;
                 const sectionIndex = destination.index;
 
@@ -3118,12 +3135,23 @@
                 // Optional: update active class in your menu
                 $('.menu-scroll a[href="#' + sectionAnchor + '"]');
 
-                $('.header').removeClass('hide-header');
-            },
+                const $header = $('.header');
 
+                // Удаляем скрытие
+                $header.removeClass('hide-up hide-down');
 
+                // Добавляем нужную анимацию
+                if (scrollDirection === 'down') {
+                    $header.addClass('from-bottom');
+                } else {
+                    $header.addClass('from-top');
+                }
 
-
+                // Показываем шапку с анимацией
+                setTimeout(() => {
+                    $header.addClass('show');
+                }, 10);
+            }
 
 
         });
