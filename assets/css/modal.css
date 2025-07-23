@@ -273,6 +273,17 @@
     padding: 0;
 }
 
+
+#all-map .close{
+    background: #47515D;
+
+}
+#all-map .close:before,
+#all-map .close:after{
+    background-color: #FFFFFF;
+}
+
+
 @media (max-width: 767px){
     .modal-form {
         max-width: 480px;

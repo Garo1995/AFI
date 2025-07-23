@@ -181,6 +181,12 @@ $('.found-cnt-box').on('click', function () {
     $('.floor-room-boxis').addClass('floor-room-opened');
 })
 
+$('.floor-lot-card').on('click', function () {
+    $('.floor-plan').addClass('floor-plan-none');
+    $('.floor-room-boxis').addClass('floor-room-opened');
+    $('.select-layout').removeClass('select-layout-opened');
+})
+
 
 
 $('.back-parameters').on('click', function () {
@@ -190,11 +196,9 @@ $('.back-parameters').on('click', function () {
 
 
 
-
 $('.all-news-box').on('click', function (e) {
     e.stopPropagation();
     $('.all-news-modal').addClass('news-modal-opened');
-
 })
 
 $('.all-news-modal').on('click', function (e) {
@@ -211,7 +215,7 @@ $(window).on('click', function (e) {
 
 $('.close-news-modal').on('click', function () {
     $('.all-news-modal').removeClass('news-modal-opened');
-})
+});
 
 
 
@@ -219,18 +223,18 @@ $('.open-filter-mobile').on('click', function (e) {
     e.stopPropagation();
 
     $('.floor-plan-fixed').toggleClass('plan-fixed-open');
-})
+});
 
 
 $('.floor-plan-line').on('click', function (e) {
     e.stopPropagation();
     $('.floor-plan-fixed').removeClass('plan-fixed-open');
-})
+});
 
 
 $('.floor-plan-fixed').on('click', function (e) {
     e.stopPropagation();
-})
+});
 
 $(window).on('click', function (e) {
     let fixedSort = $('.floor-plan-fixed');
@@ -263,6 +267,7 @@ $(document).ready(function () {
         $('.add-news-text').text(text);
 
         // Открытие окна (если оно скрыто, добавь свою логику)
+
         $('.all-news-col').fadeIn(); // или .addClass('active'), если ты используешь CSS-модалки
     });
 });

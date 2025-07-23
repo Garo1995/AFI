@@ -2817,11 +2817,11 @@
             <div class="container">
                 <div class="floor-room G-align-center G-justify-between">
                     <div class="floor-room-cnt" style="background-image: url('./assets/img/glr.png')">
-                        <div class="floor-room-fon">
+                        <div class="floor-lot-card floor-room-fon">
                             <div class="floor-room-price G-align-center G-justify-between">
                                 <strong>211 000 000 ₽</strong>
-                                <span data-val="modal" class="open_modal arrow-top-rig">
-                                <img src="./assets/img/arrow-top-rig.svg" alt="arrow">
+                                <span class="arrow-top-rig">
+                                    <img src="./assets/img/arrow-top-rig.svg" alt="arrow">
                                 </span>
                             </div>
                             <div class="floor-room-flex G-align-center G-justify-between">
@@ -3067,25 +3067,17 @@
 
 </div>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.24/fullpage.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
 
 <script src="assets/js/jquery-3.6.4.js"></script>
 <script src="assets/js/jquery.fancybox.js"></script>
 <script src="https://snipp.ru/cdn/maskedinput/jquery.maskedinput.min.js"></script>
 <script src="assets/js/swiper-bundle.min.js"></script>
 <script src="assets/js/floor.js"></script>
-
-
-
-
-
 <script src="assets/js/script.js"></script>
 <script src="assets/js/map.js"></script>
-
 
 <script>
     $.mask.definitions['h'] = "[0|1|3|4|5|6|7|9]"
@@ -3179,7 +3171,6 @@
     });
 </script>
 
-
 <script>
     const defaultMarker = [
         {
@@ -3190,7 +3181,6 @@
         },
     ]
     const productsList = [
-
         {
             title: "Парки",
             category: "park",
@@ -3231,10 +3221,7 @@
                 {title: "Фитнес 1", lat: 55.662846, lot: 37.536772},
             ]
         },
-
-
     ]
-
 
     const homePageMa = new YandexMapConstructor({
         mapContainerId: 'map',
@@ -3254,22 +3241,23 @@
         ]
     }
 
-    const categoryListContainer = document.getElementById('category-list')
-    let flagSelectAll = false
+    const categoryListContainer = document.getElementById('category-list');
+    let flagSelectAll = false;
 
-    const allPoints_li = document.createElement('li')
+    const allPoints_li = document.createElement('li');
     allPoints_li.innerHTML = `
-                        <div class="map-cnt-info G-align-center G-justify-between"><span>${allPoints.title}</span> <span>${allPoints.points.length}</span>
-                        </div>
+            <div class="map-cnt-info G-align-center G-justify-between">
+            <span>${allPoints.title}</span> <span>${allPoints.points.length}</span>
+            </div>
         `
     allPoints_li.addEventListener('click', function () {
         homePageMa.changeCategory(allPoints)
-        const items = categoryListContainer.querySelectorAll('li')
+        const items = categoryListContainer.querySelectorAll('li');
         items.forEach((item) => {
-            item.classList.remove('map-act')
+            item.classList.remove('map-act');
         })
-        allPoints_li.classList.add('map-act')
-        flagSelectAll = true
+        allPoints_li.classList.add('map-act');
+        flagSelectAll = true;
     })
 
     categoryListContainer.append(allPoints_li)
@@ -3277,10 +3265,12 @@
         let productItem = document.createElement('li')
         productItem.innerHTML = `
             <div class="map-icon ${productsList[i].icon ? 'show-icon' : ''}">
-            <img src="${productsList[i].icon}" alt="food"/>
+                <img src="${productsList[i].icon}" alt="food"/>
             </div>
-                        <div class="map-cnt-info G-align-center G-justify-between"><span>${productsList[i].title}</span> <span>${productsList[i].points.length}</span>
-                        </div>
+            <div class="map-cnt-info G-align-center G-justify-between">
+                <span>${productsList[i].title}</span>
+                <span>${productsList[i].points.length}</span>
+            </div>
         `
         productItem.addEventListener('click', function () {
             if (flagSelectAll) {
@@ -3299,13 +3289,13 @@
                 productItem.classList.remove('map-act')
             }
         })
-        categoryListContainer.append(productItem)
 
+
+        categoryListContainer.append(productItem)
 
         document.querySelector('.zoom-map-plus').addEventListener('click', function () {
             homePageMa.zoomIn()
         })
-
         document.querySelector('.zoom-map-minus').addEventListener('click', function () {
             homePageMa.zoomOut()
         })
@@ -3315,43 +3305,85 @@
     }
 </script>
 
-
 <script>
     const homePageModalMap = new YandexMapConstructor({
         mapContainerId: 'modal-map',
         defaultMarker: defaultMarker,
     })
 
+    const allPointsMob = {
+        title: "Все",
+        category: "all",
+        icon: '',
+        points: [
+            {title: "Парки ", lat: 55.662846, lot: 37.536672, icon: './assets/img/park.svg'},
+            {title: "Школы 1", lat: 55.662646, lot: 37.536272, icon: './assets/img/scul.svg'},
+            {title: "ВУЗы", lat: 55.662886, lot: 37.536402, icon: './assets/img/universities.svg'},
+            {title: "Кафе и рестораны 1", lat: 55.662896, lot: 37.537622, icon: './assets/img/cafe.svg'},
+            {title: "Фитнес 1", lat: 55.662846, lot: 37.536772, icon: './assets/img/fitnes.svg'},
+        ]
+    }
 
     const categoryListContainerModal = document.getElementById('category-list-modal')
+
+
+    let flagSelectAllMod = false;
+
+    const allPointsMod_li = document.createElement('li');
+    allPointsMod_li.innerHTML = `
+            <div class="map-cnt-info G-align-center G-justify-between">
+            <span>${allPointsMob.title}</span> <span>${allPointsMob.points.length}</span>
+            </div>
+        `
+    allPointsMod_li.addEventListener('click', function () {
+        homePageModalMap.changeCategory(allPointsMob)
+        const items = categoryListContainerModal.querySelectorAll('li');
+        items.forEach((item) => {
+            item.classList.remove('map-act');
+        })
+        allPointsMod_li.classList.add('map-act');
+        flagSelectAllMod = true;
+    })
+
+
+
+
+    categoryListContainerModal.append(allPointsMod_li)
     for (let i = 0; i < productsList.length; i++) {
         let productItem = document.createElement('li')
         productItem.innerHTML = `
-            <div class="map-icon"><img src="${productsList[i].icon}" alt="food"/></div>
-                        <div class="map-cnt-info G-align-center G-justify-between"><span>${productsList[i].title}</span> <span>${productsList[i].points.length}</span>
-                        </div>
+            <div class="map-icon ${productsList[i].icon ? 'show-icon' : ''}">
+                <img src="${productsList[i].icon}" alt="food"/>
+            </div>
+            <div class="map-cnt-info G-align-center G-justify-between">
+                <span>${productsList[i].title}</span>
+                <span>${productsList[i].points.length}</span>
+            </div>
         `
         productItem.addEventListener('click', function () {
+            if (flagSelectAllMod) {
+                homePageModalMap.changeCategory(null)
+                flagSelectAllMod = false
+            }
             let selectedItem = homePageModalMap.changeCategory(productsList[i])
-
-            const items = categoryListContainerModal.querySelectorAll('li')
-            items.forEach((item) => {
-                item.classList.remove('map-act')
-            })
-
-            if (selectedItem) {
+            // const items = categoryListContainer.querySelectorAll('li')
+            // items.forEach((item) => {
+            //     item.classList.remove('map-act')
+            // })
+            allPointsMod_li.classList.remove('map-act')
+            if (selectedItem.some(x => x.title === productsList[i].title)) {
                 productItem.classList.add('map-act')
             } else {
                 productItem.classList.remove('map-act')
             }
         })
-        categoryListContainerModal.append(productItem)
 
+
+        categoryListContainerModal.append(productItem)
 
         document.querySelector('.zoom-map-plus').addEventListener('click', function () {
             homePageModalMap.zoomIn()
         })
-
         document.querySelector('.zoom-map-minus').addEventListener('click', function () {
             homePageModalMap.zoomOut()
         })
@@ -3360,7 +3392,6 @@
         })
     }
 </script>
-
 
 </body>
 </html>

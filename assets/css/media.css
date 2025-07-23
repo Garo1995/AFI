@@ -140,6 +140,7 @@
     }
     .pharmacies-shops-cnt {
         padding: 24px 0;
+        border-radius: 0 0 32px 32px;
     }
     .accordion-click {
         padding: 30px 30px 16px;
@@ -609,6 +610,9 @@
         gap: 18px;
     }
     .offices-business-box:before {
+        border-radius: 20px;
+    }
+    .offices-business-box {
         border-radius: 24px;
     }
     .floor-price span {
@@ -1981,6 +1985,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
     .floor-main:before{
         content: "";
@@ -2303,6 +2308,11 @@
         display: block;
         width: 100%;
     }
+    footer {
+        margin-top: 20px;
+    }
+
+
 
 }
 @media (max-width: 767px){
@@ -2388,7 +2398,7 @@
         max-width: 336px;
     }
     .btn-news, .btn-line {
-        padding: 20px 23px;
+        padding: 18px 23px;
     }
     .construct-slider {
         width: 600px;
@@ -2460,5 +2470,9 @@
         transform: unset;
         max-width: calc(100% - 32px);
     }
+    .all-news-box p {
+        min-height: 82px;
+    }
+
 
 }

@@ -1872,7 +1872,12 @@ footer{
     width: 100%;
     border-radius: 40px;
     padding: 40px;
+    transition: 0.3s;
 }
+.floor-room-fon:hover{
+    transform: translateY(-10px);
+}
+
 .floor-room-fon:hover .arrow-top-rig img{
     filter: brightness(0) saturate(100%) invert(1);
 }
@@ -2414,7 +2419,12 @@ footer{
     width: 16px;
     height: 16px;
 }
-
+.bs-point-custom img{
+    filter: brightness(0) saturate(100%) invert(1);
+}
+.bs-point-custom.main  img{
+    filter: unset;
+}
 .map-cnt-info {
     width: 100%;
 }
