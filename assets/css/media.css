@@ -1793,7 +1793,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-image: url("../img/flower-2.png");
+        background-image: url("../img/flower-2.webp");
         background-size: cover;
         background-repeat: no-repeat;
         width: 100%;
@@ -2090,7 +2090,7 @@
     .floor-main{
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: url("../img/afi-park.png");
+        background-image: url("../img/afi-park.webp");
         border-radius: 24px;
         padding: 20px 16px 16px;
         height: 680px;
