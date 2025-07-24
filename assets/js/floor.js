@@ -128,7 +128,6 @@ let swiper2 = new Swiper(".select-layout-slider", {
 
 
 
-
 const cards = document.querySelectorAll('.card');
 const fill = document.querySelector('.scrollbar-fill');
 let current = 0;
@@ -183,7 +182,7 @@ function startAutoPlay() {
     autoPlay = setInterval(() => {
         current = (current + 1) % cards.length;
         updateClasses();
-    }, 2000);
+    }, 2500);
 }
 
 function stopAutoPlay() {

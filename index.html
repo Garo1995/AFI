@@ -3103,7 +3103,10 @@
             showActiveTooltip: true,
             scrollOverflow: true,
 
-
+            normalScrollElements: '.found-cnt-scroll, .all-news-wrap',
+            // обязательно включи это:
+            touchSensitivity: 15,
+            normalScrollElementTouchThreshold: 5,
 
             onLeave: function(origin, destination, direction) {
                 const $header = $('.header');
@@ -3148,10 +3151,7 @@
             },
 
 
-            normalScrollElements: '.found-cnt-scroll, .all-news-wrap',
-            // обязательно включи это:
-            touchSensitivity: 15,
-            normalScrollElementTouchThreshold: 5,
+
 
         });
     }
