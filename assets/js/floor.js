@@ -60,12 +60,20 @@ floorButtons.forEach(btn => {
 $('.floor-svg-box').on('click', function() {
     $('body').addClass('body-fixed');
     $('.select-layout').addClass('select-layout-opened');
+    if (window.fullpage_api) {
+        fullpage_api.setAllowScrolling(false);
+        fullpage_api.setKeyboardScrolling(false);
+    }
 })
 
 
 $('.pop-office').on('click', function() {
     $('body').addClass('body-fixed');
     $('.select-layout').addClass('select-layout-opened');
+    if (window.fullpage_api) {
+        fullpage_api.setAllowScrolling(false);
+        fullpage_api.setKeyboardScrolling(false);
+    }
 })
 
 

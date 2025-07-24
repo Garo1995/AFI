@@ -58,6 +58,14 @@ $('.close-all-plan').on('click', function () {
     $('.floor-room-boxis').removeClass('floor-room-opened');
     $('.floor-plan').removeClass('floor-plan-none');
 
+
+    const anyOpenBack = $('.floor-room-boxis.floor-room-opened').length > 0;
+
+    if (!anyOpenBack && window.fullpage_api) {
+        fullpage_api.setAllowScrolling(true);
+        fullpage_api.setKeyboardScrolling(true);
+    }
+
 })
 
 
@@ -116,12 +124,22 @@ $('.open-all-news').on('click', function () {
 $('.interactive-map').on('click', function () {
     $('body').addClass('body-fixed');
     $('.interactive-modal').addClass('interactive-modal-open');
+    if (window.fullpage_api) {
+        fullpage_api.setAllowScrolling(false);
+        fullpage_api.setKeyboardScrolling(false);
+    }
+
 })
 
 $('.back-interactive').on('click', function () {
     $('.interactive-modal').removeClass('interactive-modal-open');
     $('body').removeClass('body-fixed');
+    const interaOpenBack = $('.interactive-modal.interactive-modal-open').length > 0;
 
+    if (!interaOpenBack && window.fullpage_api) {
+        fullpage_api.setAllowScrolling(true);
+        fullpage_api.setKeyboardScrolling(true);
+    }
 })
 
 
@@ -131,6 +149,12 @@ $('.back-select-layout').on('click', function() {
     $('.select-layout').removeClass('select-layout-opened');
     $('body').removeClass('body-fixed');
 
+    const anyOpenBack = $('.select-layout.select-layout-opened').length > 0;
+
+    if (!anyOpenBack && window.fullpage_api) {
+        fullpage_api.setAllowScrolling(true);
+        fullpage_api.setKeyboardScrolling(true);
+    }
 })
 
 
@@ -159,7 +183,10 @@ $('.sort-check-radio').on('click', function () {
 $('.select-param').on('click', function () {
     $('body').addClass('body-fixed');
     $('.floor-plan').addClass('floor-plan-opened');
-
+    if (window.fullpage_api) {
+        fullpage_api.setAllowScrolling(false);
+        fullpage_api.setKeyboardScrolling(false);
+    }
 })
 
 
@@ -168,7 +195,43 @@ $('.select-param').on('click', function () {
 $('.back-floor-sel').on('click', function () {
     $('body').removeClass('body-fixed');
     $('.floor-plan').removeClass('floor-plan-opened');
+
+    // Проверяем: остались ли открытые модалки?
+    const anyOpen = $('.floor-plan.floor-plan-opened').length > 0;
+
+    if (!anyOpen && window.fullpage_api) {
+        fullpage_api.setAllowScrolling(true);
+        fullpage_api.setKeyboardScrolling(true);
+    }
 })
+
+
+
+
+
+
+const revealOnScroll = () => {
+    const elementsToReveal = document.querySelectorAll('.animate-on-scroll');
+    const triggerPoint = window.innerHeight * 0.85;
+
+    elementsToReveal.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < triggerPoint) {
+            element.classList.add('visible');
+        }
+    });
+};
+
+// 🔄 Attach listeners
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+
+
+
+
+
 
 
 
@@ -196,25 +259,40 @@ $('.back-parameters').on('click', function () {
 
 
 
+let isAnimating = false;
+
 $('.all-news-box').on('click', function (e) {
     e.stopPropagation();
-    $('.all-news-modal').addClass('news-modal-opened');
-})
+    if (isAnimating) return;
 
-$('.all-news-modal').on('click', function (e) {
-    e.stopPropagation();
-})
+    isAnimating = true;
 
-$(window).on('click', function (e) {
-    let newsSort = $('.all-news-modal');
-    if (e.target !== newsSort) {
-        newsSort.removeClass('news-modal-opened');
-    }
+    const modal = $('.all-news-modal');
+
+    // Сначала закрываем
+    modal.removeClass('news-modal-opened');
+
+    // Подождём закрытие и откроем снова
+    setTimeout(() => {
+        // Здесь можешь подставить новый контент внутрь окна, если нужно
+        modal.addClass('news-modal-opened');
+        isAnimating = false;
+    }, 300); // 300 мс — время "закрытия"
 });
 
+// Клик вне окна — закрытие
+$(window).on('click', function (e) {
+    $('.all-news-modal').removeClass('news-modal-opened');
+});
 
+// Закрытие по кнопке
 $('.close-news-modal').on('click', function () {
     $('.all-news-modal').removeClass('news-modal-opened');
+});
+
+// Чтобы клик по самому окну не закрывал
+$('.all-news-modal').on('click', function (e) {
+    e.stopPropagation();
 });
 
 
@@ -309,6 +387,7 @@ let constructSwiper = new Swiper(".construct-slider", {
     slidesPerView: 4,
     spaceBetween: 20,
     slidesPerGroup: 1,
+    loop: true,
     speed: 600,
     breakpoints: {
         '1020': {
@@ -411,50 +490,61 @@ $(function () {
 
 
 
-
-
 $('.open_modal').on('click', function (e) {
     e.preventDefault();
     let attr = $(this).attr('data-val');
     let modal = $('#' + attr);
 
-    // Показываем модалку
     modal.removeClass('out');
-    $('body').css({overflow: 'hidden'});
+    $('body').css({ overflow: 'hidden' });
     modal.fadeIn();
 
+    if (window.fullpage_api) {
+        fullpage_api.setAllowScrolling(false);
+        fullpage_api.setKeyboardScrolling(false);
+    }
 });
-$('.close').on('click', function () {
-    let prt = $(this).parents('.modal');
-    prt.addClass('out')
-    setTimeout(function () {
-        prt.fadeOut();
-    }, 100);
-    $('body').css({overflow: 'visible '})
 
-})
+$('.close').on('click', function () {
+    let prt = $(this).closest('.modal');
+    prt.addClass('out');
+
+    setTimeout(function () {
+        prt.fadeOut(200, function () {
+            // После fadeOut() — включаем scroll обратно
+            const anyOpen = $('.modal:visible').length > 0;
+
+            if (!anyOpen && window.fullpage_api) {
+                fullpage_api.setAllowScrolling(true);
+                fullpage_api.setKeyboardScrolling(true);
+            }
+
+            $('body').css({ overflow: 'visible' }); // ❗️без пробела
+        });
+    }, 100);
+});
 
 $(window).on('click', function (event) {
     $('.modal').each(function () {
-        let gtattr = $(this).attr('id');
-        let new_mod = $('#' + gtattr);
-        let md_cnt = $(new_mod).find('.modal-content');
+        const modal = $(this);
+        const content = modal.find('.modal-content');
 
-        if (event.target === $(md_cnt)[0]) {
+        if (event.target === this || event.target === content[0]) {
+            modal.addClass('out');
             setTimeout(function () {
-                $(new_mod).addClass('out')
-                $(new_mod).fadeOut()
-            }, 100)
-            $('body').css({overflow: 'visible '})
+                modal.fadeOut(200, function () {
+                    const anyOpen = $('.modal:visible').length > 0;
+
+                    if (!anyOpen && window.fullpage_api) {
+                        fullpage_api.setAllowScrolling(true);
+                        fullpage_api.setKeyboardScrolling(true);
+                    }
+
+                    $('body').css({ overflow: 'visible' }); // ❗️без пробела
+                });
+            }, 100);
         }
-        if (event.target === this) {
-            setTimeout(function () {
-                $(new_mod).addClass('out')
-                $(new_mod).fadeOut()
-            }, 100)
-            $('body').css({overflow: 'visible '})
-        }
-    })
+    });
 });
 
 

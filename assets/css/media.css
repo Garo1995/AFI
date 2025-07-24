@@ -344,6 +344,9 @@
     .construct-desc-slider {
         height: 545px;
     }
+    .all-news-wrap {
+        height: 526px;
+    }
     .construct-card {
         height: 545px;
     }
@@ -531,7 +534,10 @@
         border-radius: 0 0 24px 24px;
     }
     .construct-desc-slider {
-        height: 500px;
+        height: 512px;
+    }
+    .all-news-wrap {
+        height: 493px;
     }
     .facility-leaders-box {
         border-radius: 24px;
@@ -1088,7 +1094,20 @@
         max-width: 600px;
         padding: 0;
     }
-
+    .close-mod {
+        width: 40px;
+        height: 40px;
+    }
+    .all-news-wrap {
+        overflow-y: unset;
+        -webkit-overflow-scrolling: unset;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+    .all-news-box p {
+        min-height: 81px;
+    }
 }
 
 
@@ -1598,6 +1617,7 @@
     }
     .construct-slider {
         width: 1200px;
+        margin: 0;
     }
     .construct-prog-rel {
         padding-right: 0;
@@ -1784,7 +1804,9 @@
         width: 24px;
         height: 24px;
     }
-
+    .close-mod{
+        display: none;
+    }
 
     .floor-room-boxis .floor-room-main {
         height: calc(100vh - 86px);
