@@ -1927,7 +1927,7 @@
         top: auto;
         border-radius: 24px 24px 0 0;
         display: block;
-        transform: translateY(100%);
+        transform: translateY(130%);
         transition: transform 0.3s ease;
         z-index: 100;
     }
@@ -2173,7 +2173,7 @@
         border-radius: 24px 24px 0 0;
         position: fixed;
         display: block;
-        transform: translateY(100%);
+        transform: translateY(130%);
         transition: transform 0.3s ease;
         z-index: 100;
     }
@@ -2261,7 +2261,7 @@
         padding: 32px 16px 50px;
         border-radius: 24px 24px 0 0 ;
         z-index: 111;
-        transform: translateY(100%);
+        transform: translateY(130%);
         transition: transform 0.3s ease;
     }
     .floor-plan-fixed.plan-fixed-open {
@@ -2597,7 +2597,7 @@
         top: auto;
         max-width: 100%;
         border-radius: 24px 24px 0 0;
-        transform: translateY(100%);
+        transform: translateY(130%);
         transition: transform 0.3s ease;
         z-index: 100;
         display: block;
