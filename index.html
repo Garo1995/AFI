@@ -1111,7 +1111,7 @@
                         <h3 class="construct-title animate-on-scroll delay-300">Ход строительства</h3>
                     </div>
                 </div>
-                <div class="sorting-modal all-news-modal ">
+                <div class="all-news-modal ">
                     <span class="close-news-modal"></span>
                     <div class="all-news-col">
                         <img class="add-news-photo" src="" alt="news">
@@ -1223,7 +1223,7 @@
 
                 <div class="floor-plan-range G-align-center G-justify-between ">
                     <div class="floor-plan-fiv  G-align-center G-justify-between">
-                        <div class="sorting-modal floor-plan-fixed">
+                        <div class="floor-plan-fixed">
                             <span class="floor-plan-line"></span>
                             <strong>Фильтр</strong>
                             <div class="floor-plan-mobs G-align-center">
@@ -1277,7 +1277,7 @@
                         </div>
 
 
-                        <div class="sorting-modal sort-floor-abs">
+                        <div class="sort-floor-abs">
                             <span class="floor-plan-line"></span>
                             <strong class="sort-mod-title">Сортировать</strong>
                             <div class="sort-floor-name">
@@ -2778,7 +2778,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-photo G-flex">
-                                <img src="./assets/img/gallery.jpg" alt="gallery">
+                                <img src="./assets/img/gallery.webp" alt="gallery">
                             </div>
                         </div>
                     </div>
@@ -2986,7 +2986,7 @@
         </div>
         <div class="interactive-main">
             <div class="infrastructure-map ">
-                <div class="sorting-modal infrast-map-cnt">
+                <div class="infrast-map-cnt">
                     <span class="close-filt-map"></span>
                     <ul id="category-list" class="G-flex-column">
 
@@ -3110,7 +3110,7 @@
 
             onLeave: function(origin, destination, direction) {
                 const $header = $('.header');
-                scrollDirection = direction;
+                lastScrollDirection  = direction;
 
                 // Удаляем все старые состояния
                 $header.removeClass('from-top from-bottom show hide-up hide-down');
@@ -3138,7 +3138,7 @@
                 $header.removeClass('hide-up hide-down');
 
                 // Добавляем нужную анимацию
-                if (scrollDirection === 'down') {
+                if (lastScrollDirection  === 'down') {
                     $header.addClass('from-bottom');
                 } else {
                     $header.addClass('from-top');
@@ -3149,9 +3149,6 @@
                     $header.addClass('show');
                 }, 10);
             },
-
-
-
 
         });
     }

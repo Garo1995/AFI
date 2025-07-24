@@ -1716,7 +1716,7 @@
     }
 
     #fullpage {
-        margin-top: 13px;
+        margin-top: 28px;
     }
     .floor-box {
         top: 12px;
@@ -1919,13 +1919,20 @@
         height: 24px;
     }
     .infrast-map-cnt {
+        position: fixed;
         width: 100%;
         padding: 6px 18px 18px;
         height: auto;
         bottom: 0;
         top: auto;
         border-radius: 24px 24px 0 0;
-        display: none;
+        display: block;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 100;
+    }
+    .infrast-map-cnt.infrast-map-open {
+        transform: translateY(0%);
     }
     .leaders-column:nth-child(2){
         order: 3;
@@ -2165,7 +2172,16 @@
         max-width: 100%;
         border-radius: 24px 24px 0 0;
         position: fixed;
+        display: block;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 100;
     }
+
+    .all-news-modal.news-modal-opened {
+        transform: translateY(0%);
+    }
+
     .btn-news, .btn-line {
         padding: 18px 50px;
         font-size: 13px;
@@ -2232,7 +2248,9 @@
         width: calc(50% - 12px);
     }
 
-
+    .footer-main{
+        margin-top: 30px;
+    }
     .floor-plan-fixed{
         position: fixed;
         bottom: 0;
@@ -2242,9 +2260,17 @@
         box-shadow: 4px 4px 30px 0px rgba(83, 99, 116, 0.3);
         padding: 32px 16px 50px;
         border-radius: 24px 24px 0 0 ;
-        opacity: 0;
-        visibility: hidden;
+        z-index: 111;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
     }
+    .floor-plan-fixed.plan-fixed-open {
+        transform: translateY(0%);
+    }
+
+
+
+
     .floor-plan-fixed strong{
         font-weight: 500;
         font-size: 16px;
@@ -2320,10 +2346,7 @@
         height: 24px;
     }
 
-    .plan-fixed-open{
-        opacity: 1;
-        visibility: visible;
-    }
+
     .floor-plan-fixed>strong {
         display: block;
         padding: 10px 0 15px;
@@ -2467,6 +2490,15 @@
         width: 100%;
     }
 
+
+
+
+
+
+    .animate-on-scroll {
+        transition: all 0.3s ease-out;
+    }
+
 }
 @media (max-width: 570px){
     h1 {
@@ -2565,7 +2597,16 @@
         top: auto;
         max-width: 100%;
         border-radius: 24px 24px 0 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 100;
+        display: block;
     }
+    .sort-floor-abs.sort-floor-abs-act {
+        transform: translateY(0%);
+    }
+
+
     .sort-mod-title{
         display: block;
         font-weight: 500;
@@ -2588,4 +2629,10 @@
     }
 
 
+}
+
+@media (max-width: 430px){
+    h1 {
+        font-size: 40px;
+    }
 }

@@ -1622,7 +1622,7 @@ footer{
     transition: 0.3s;
     background: #FFFFFF;
     border: 1px solid #9A9A9A;
-    max-width: max-content;
+    max-width: 343px;
     width: 100%;
     border-radius: 50px;
     gap: 12px;

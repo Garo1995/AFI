@@ -121,7 +121,12 @@ table {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+* {
+    user-select: none;
+    -webkit-user-select: none; /* Для Safari */
+    -moz-user-select: none;    /* Для Firefox */
+    -ms-user-select: none;     /* Для Internet Explorer */
+}
 a {
     display: inline-block;
     text-decoration: none;

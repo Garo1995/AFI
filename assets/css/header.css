@@ -233,11 +233,12 @@ header .container-lage{
         width: 120px;
     }
     header {
-        top: 0;
-        background: #F4F4F4;
+        top: 12px;
     }
     .header-main {
-        padding: 20px 10px 20px;
+        padding: 15px 16px 15px;
+        background: #F4F4F4;
+        border-radius: 24px;
     }
 
     .open-menu span {
@@ -268,9 +269,7 @@ header .container-lage{
         height: 52px;
         justify-content: center;
     }
-    .header-main {
-        padding: 17px 10px 17px;
-    }
+
 
     .open-menu span{
         position: relative;
@@ -290,7 +289,7 @@ header .container-lage{
 
 @media (max-width: 570px){
     .head-menu {
-        top: 95px;
+        top: 87px;
         position: fixed;
         left: 0;
         right: auto;

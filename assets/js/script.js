@@ -25,7 +25,10 @@ $(document).ready(function () {
 });
 
 
-
+// Свайп вниз — закрыть
+let startY = 0;
+let endY = 0;
+let threshold = 50;
 
 
 
@@ -39,6 +42,11 @@ $(window).on('click', function (e) {
     if (e.target !== menuSort) {
         menuSort.removeClass('menu-opened');
     }
+    let menuCLose = $('.open-menu');
+    if (e.target !== menuCLose) {
+        menuCLose.removeClass('close-menu');
+    }
+
 });
 
 
@@ -160,8 +168,27 @@ $('.back-select-layout').on('click', function() {
 
 $('.sort-floor').on('click', function (e) {
     e.stopPropagation();
-    $('.sort-floor-abs').toggleClass('sort-floor-abs-act');
+    $('.sort-floor-abs').addClass('sort-floor-abs-act');
 })
+
+$('.sort-floor-abs').on('touchstart', function (e) {
+    startY = e.originalEvent.touches[0].clientY;
+});
+
+$('.sort-floor-abs').on('touchmove', function (e) {
+    endY = e.originalEvent.touches[0].clientY;
+});
+
+$('.sort-floor-abs').on('touchend', function () {
+    if (endY - startY > threshold) {
+        $(this).removeClass('sort-floor-abs-act');
+        console.log('Свайп вниз — окно закрыто');
+    }
+});
+
+
+
+
 
 $(window).on('click', function (e) {
     let floorSort = $('.sort-floor-abs');
@@ -297,11 +324,6 @@ $('.all-news-modal').on('click', function (e) {
 
 
 
-$('.open-filter-mobile').on('click', function (e) {
-    e.stopPropagation();
-
-    $('.floor-plan-fixed').toggleClass('plan-fixed-open');
-});
 
 
 $('.floor-plan-line').on('click', function (e) {
@@ -354,7 +376,6 @@ $(document).ready(function () {
 
 let officeSwiper = new Swiper(".office-station-slider", {
     slidesPerView: 1,
-    spaceBetween: 5,
     loop: true,
     speed: 1000,
     autoplay: {
@@ -442,6 +463,50 @@ let gallerySwiper = new Swiper(".gallery-slider", {
 
 
 
+$('.all-news-modal').on('touchstart', function (e) {
+    startY = e.originalEvent.touches[0].clientY;
+});
+
+$('.all-news-modal').on('touchmove', function (e) {
+    endY = e.originalEvent.touches[0].clientY;
+});
+
+$('.all-news-modal').on('touchend', function () {
+    if (endY - startY > threshold) {
+        $(this).removeClass('news-modal-opened');
+        console.log('Свайп вниз — окно закрыто');
+    }
+});
+
+
+
+
+
+
+
+
+$('.infrast-map-cnt').on('touchstart', function (e) {
+    startY = e.originalEvent.touches[0].clientY;
+});
+
+$('.infrast-map-cnt').on('touchmove', function (e) {
+    endY = e.originalEvent.touches[0].clientY;
+});
+
+$('.infrast-map-cnt').on('touchend', function () {
+    if (endY - startY > threshold) {
+        $(this).removeClass('infrast-map-open');
+        console.log('Свайп вниз — окно закрыто');
+    }
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -479,12 +544,27 @@ $(function () {
 
 
 
+$('.open-filter-mobile').on('click', function (e) {
+    e.stopPropagation();
+    $('.floor-plan-fixed').addClass('plan-fixed-open');
+
+});
 
 
+$('.floor-plan-fixed').on('touchstart', function (e) {
+    startY = e.originalEvent.touches[0].clientY;
+});
 
+$('.floor-plan-fixed').on('touchmove', function (e) {
+    endY = e.originalEvent.touches[0].clientY;
+});
 
-
-
+$('.floor-plan-fixed').on('touchend', function () {
+    if (endY - startY > threshold) {
+        $(this).removeClass('plan-fixed-open');
+        console.log('Свайп вниз — окно закрыто');
+    }
+});
 
 
 
