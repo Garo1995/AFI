@@ -1901,7 +1901,7 @@ footer{
     transition: 0.3s;
 }
 .floor-room-fon:hover{
-    transform: translateY(-10px);
+    padding: 50px 40px;
 }
 
 .floor-room-fon:hover .arrow-top-rig img{

@@ -49,6 +49,9 @@
     .floor-room-fon {
         padding: 30px;
     }
+    .floor-room-fon:hover{
+        padding: 40px 30px;
+    }
     .on-sale-kox img{
         width: 62px;
     }
@@ -758,6 +761,9 @@
     .floor-room-fon {
         padding: 24px;
         border-radius: 24px;
+    }
+    .floor-room-fon:hover{
+        padding: 34px 24px;
     }
     .download-pdf {
         gap: 11px;
