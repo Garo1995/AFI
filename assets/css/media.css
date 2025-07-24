@@ -498,8 +498,87 @@
     .footer-policy {
         margin-top: 20px;
     }
+    .technologies-photo {
+        max-width: 762px;
+    }
+    .business-center-box {
+        height: auto;
+    }
+    h1 {
+        font-size: 90px;
+    }
 }
+@media (min-width: 1599px ) and (max-height: 699px){
+    .office-station {
+        margin-top: 100px;
+    }
+    .office-green-fon {
+        padding: 45px 0 30px;
+    }
 
+    p {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .business-center-cnt {
+        margin-top: 50px;
+    }
+    .pharmacies-shops {
+        height: 579px;
+    }
+    h3 {
+        font-size: 28px;
+        line-height: 105%;
+    }
+    .facility-leaders-title {
+        padding: 20px 0;
+    }
+    .technologies-photo {
+        max-width: 700px;
+    }
+    .technologies-info ul li {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .investment-photo {
+        padding: 60px 60px 80px;
+    }
+    .project-flex {
+        margin-top: 59px;
+    }
+    .floor-selection-fon {
+        margin-top: -20px;
+    }
+    .construct-card {
+        height: 447px;
+    }
+    .construct-desc-slider {
+        height: 450px;
+    }
+    .all-news-box {
+        padding: 18px 18px;
+        width: calc(33.333333% - 8px);
+
+    }
+    .all-news-box p {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        min-height: 83px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .all-news-wrap {
+        height: 430px;
+        gap: 12px;
+    }
+    .floor-selection-fon {
+        margin-top: -18px;
+    }
+    .floor-selection-cnt {
+        padding: 20px 0;
+    }
+}
 @media (max-width: 1599px){
     .swiper-button-prev, .swiper-button-next {
         width: 50px;
@@ -534,7 +613,10 @@
         border-radius: 0 0 24px 24px;
     }
     .construct-desc-slider {
-        height: 512px;
+        height: 450px;
+    }
+    .construct-card {
+        height: 450px;
     }
     .all-news-wrap {
         height: 493px;
@@ -542,7 +624,10 @@
     .facility-leaders-box {
         border-radius: 24px;
         padding: 24px;
-        height: 250px;
+        height: 226px;
+    }
+    .leaders-photo {
+        height: 226px;
     }
     .leaders-photo img{
         border-radius: 24px;
@@ -811,7 +896,7 @@
         max-width: 410px;
     }
     .office-station {
-        margin-top: 180px;
+        margin-top: 130px;
     }
     .pic-flower {
         max-width: 700px;
