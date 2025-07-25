@@ -168,7 +168,7 @@ $('.back-select-layout').on('click', function() {
 
 $('.sort-floor').on('click', function (e) {
     e.stopPropagation();
-    $('.sort-floor-abs').addClass('sort-floor-abs-act');
+    $('.sort-floor-abs').toggleClass('sort-floor-abs-act');
 })
 
 $('.sort-floor-abs').on('touchstart', function (e) {
@@ -286,40 +286,47 @@ $('.back-parameters').on('click', function () {
 
 
 
-let isAnimating = false;
+let isModalOpen = false;
 
+// Клик по блоку новости
 $('.all-news-box').on('click', function (e) {
     e.stopPropagation();
-    if (isAnimating) return;
 
-    isAnimating = true;
+    if (isModalOpen) {
+        // Если уже открыто — просто закрываем
+        $('.all-news-modal').removeClass('news-modal-opened');
+        $('body').removeClass('body-fixed');
 
-    const modal = $('.all-news-modal');
+        isModalOpen = false;
+        return;
+    }
 
-    // Сначала закрываем
-    modal.removeClass('news-modal-opened');
-
-    // Подождём закрытие и откроем снова
-    setTimeout(() => {
-        // Здесь можешь подставить новый контент внутрь окна, если нужно
-        modal.addClass('news-modal-opened');
-        isAnimating = false;
-    }, 300); // 300 мс — время "закрытия"
+    // Если закрыто — открываем
+    $('.all-news-modal').addClass('news-modal-opened');
+    $('body').addClass('body-fixed');
+    isModalOpen = true;
 });
 
-// Клик вне окна — закрытие
-$(window).on('click', function (e) {
+// Клик вне модального окна — закрыть
+$(document).on('click', function () {
     $('.all-news-modal').removeClass('news-modal-opened');
+    $('body').removeClass('body-fixed');
+
+    isModalOpen = false;
 });
 
-// Закрытие по кнопке
-$('.close-news-modal').on('click', function () {
-    $('.all-news-modal').removeClass('news-modal-opened');
-});
-
-// Чтобы клик по самому окну не закрывал
+// Чтобы клик по модалке не закрывал её
 $('.all-news-modal').on('click', function (e) {
     e.stopPropagation();
+});
+
+// Кнопка закрытия
+$('.close-news-modal').on('click', function (e) {
+    e.stopPropagation();
+    $('.all-news-modal').removeClass('news-modal-opened');
+    $('body').removeClass('body-fixed');
+
+    isModalOpen = false;
 });
 
 
@@ -374,19 +381,6 @@ $(document).ready(function () {
 
 
 
-let officeSwiper = new Swiper(".office-station-slider", {
-    slidesPerView: 1,
-    loop: true,
-    speed: 1000,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".office-pagination",
-        clickable: true,
-    }
-});
 
 
 
@@ -440,6 +434,12 @@ let constructSwiper = new Swiper(".construct-slider", {
 $('.open-filt-map').on('click', function (){
     $('.infrast-map-cnt').addClass('infrast-map-open')
 })
+$('.close-mod-class').on('click', function (){
+    $('.infrast-map-cnt').removeClass('infrast-map-open')
+})
+$('.zoom-map').on('click', function (){
+    $('.infrast-map-cnt').removeClass('infrast-map-open')
+})
 $('.close-filt-map').on('click', function (){
     $('.infrast-map-cnt').removeClass('infrast-map-open')
 })
@@ -474,6 +474,8 @@ $('.all-news-modal').on('touchmove', function (e) {
 $('.all-news-modal').on('touchend', function () {
     if (endY - startY > threshold) {
         $(this).removeClass('news-modal-opened');
+        $('body').removeClass('body-fixed');
+
         console.log('Свайп вниз — окно закрыто');
     }
 });

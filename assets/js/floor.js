@@ -108,6 +108,7 @@ let layoutSwiper = new Swiper(".layout-number-slider", {
         },
     },
 });
+
 let swiper2 = new Swiper(".select-layout-slider", {
     spaceBetween: 10,
     slidesPerView: 1,
@@ -121,8 +122,6 @@ let swiper2 = new Swiper(".select-layout-slider", {
         swiper: layoutSwiper,
     },
 });
-
-
 
 
 

@@ -1492,12 +1492,11 @@ footer{
     visibility: hidden;
 }
 .floor-room-boxis .floor-room-main {
-    padding: 35px 0 0;
     height: 80%;
 }
 
 .floor-plan-fon{
-    padding: 120px 0 0;
+    padding: 30px 0 0;
     background: #FFFFFF;
     border-radius: 40px 40px 0 0;
 }
@@ -1612,7 +1611,9 @@ footer{
 
 
 
-
+.open-all-news-act{
+    padding-top: 1px;
+}
 
 .sort-floor{
     position: relative;
@@ -1733,8 +1734,8 @@ footer{
 
 
 .found-cnt-scroll {
-    margin-top: 70px;
-    height: calc(100vh - 400px);
+    margin-top: 60px;
+    height: calc(100vh - 360px);
     margin-right: -10px;
     padding-right: 12px;
     padding-bottom: 200px;
@@ -1753,7 +1754,7 @@ footer{
 }
 .found-cnt-flex{
     width: 100%;
-    gap: 60px 16px;
+    gap: 45px 16px;
 
 }
 .found-cnt-box{
@@ -1877,7 +1878,7 @@ footer{
 .floor-room-main{
     background: #FFFFFF;
     border-radius: 40px;
-    padding: 60px 0 0;
+    padding: 40px 0 0;
     height: 86%;
 }
 .floor-room{
@@ -1961,23 +1962,27 @@ footer{
     border: 1px solid #FFFFFF;
     background: unset;
     border-radius: 500px;
-    padding: 12px 36px;
+    padding: 10px 36px;
     white-space: nowrap;
     transition: 0.3s;
     color: #FFFFFF;
     font-weight: 400;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 18px;
 }
 .icon-pdf{
     content: url("../img/pdf.svg");
     width: 28px;
     height: 28px;
+    transition: 0.3s;
+}
+.download-pdf:hover .icon-pdf{
+    transform: scale(1.1);
 }
 .floor-room-svg{
     max-width: 847px;
     width: 100%;
-    padding: 32px;
+    padding: 15px;
 }
 .floor-room-svg svg{
     height: auto;
@@ -2053,7 +2058,7 @@ footer{
 .select-layout-main{
     background: #FFFFFF;
     border-radius: 40px;
-    padding: 60px 0 0;
+    padding: 40px 0 0;
     height: 85%;
 }
 
