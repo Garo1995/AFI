@@ -1494,7 +1494,9 @@ footer{
 .floor-room-boxis .floor-room-main {
     height: 80%;
 }
-
+.layout-number-slider .swiper-slide {
+    pointer-events: none;
+}
 .floor-plan-fon{
     padding: 30px 0 0;
     background: #FFFFFF;
