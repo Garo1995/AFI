@@ -58,6 +58,14 @@ $('.head-menu a').on('click', function () {
     $('.select-layout').removeClass('select-layout-opened');
     $('.floor-room-boxis').removeClass('floor-room-opened');
 
+
+    const interaOpenBack = $('.interactive-modal.interactive-modal-open').length > 0;
+
+    if (!interaOpenBack && window.fullpage_api) {
+        fullpage_api.setAllowScrolling(true);
+        fullpage_api.setKeyboardScrolling(true);
+    }
+
 })
 
 $('.close-all-plan').on('click', function () {
@@ -274,7 +282,7 @@ $('.found-cnt-box').on('click', function () {
 $('.floor-lot-card').on('click', function () {
     $('.floor-plan').addClass('floor-plan-none');
     $('.floor-room-boxis').addClass('floor-room-opened');
-    $('.select-layout').removeClass('select-layout-opened');
+    // $('.select-layout').removeClass('select-layout-opened');
 })
 
 

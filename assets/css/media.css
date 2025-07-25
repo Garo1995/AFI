@@ -80,7 +80,6 @@
 
     .floor-room-svg {
         max-width: 836px;
-        padding: 20px;
     }
     .floor-room-svg svg {
         height: 475px;
@@ -177,6 +176,9 @@
     .project-flex {
         margin-top: 80px;
     }
+    .on-sale-kox img {
+        width: 45px;
+    }
     .floor-box {
         left: 29px;
         top: 130px;
@@ -185,8 +187,12 @@
         padding: 30px;
     }
     .floor-room-svg {
-        max-width: 803px;
+        max-width: 730px;
         width: 100%;
+    }
+    .on-sale {
+        margin-left: 30px;
+        margin-top: 7px;
     }
     .all-news-box {
         height: auto;
@@ -261,6 +267,9 @@
     }
     .found-cnt-info {
         padding: 24px 20px 5px;
+    }
+    .floor-room-cnt {
+        max-width: 765px;
     }
 }
 @media (min-width: 1600px ) and (max-height: 930px){
@@ -577,6 +586,10 @@
         padding: 20px 0;
     }
 }
+
+
+
+
 @media (max-width: 1599px){
     .swiper-button-prev, .swiper-button-next {
         width: 50px;
