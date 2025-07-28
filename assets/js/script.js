@@ -9,8 +9,7 @@ $(document).ready(function () {
     setTimeout(function () {
         $('body').addClass("home-main-active");
         // Через 600 мс после появления контента — плавное появление хедера
-
-    }, 3000);
+    }, 2000);
 });
 
 $(document).ready(function () {

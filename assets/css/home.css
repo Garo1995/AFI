@@ -47,6 +47,7 @@ p{
     z-index: 999999;
     transition: 1.8s;
     background: #FFFFFF;
+    padding: 0 15px;
 }
 .home-main-active .tagilskaya-sec{
     transform: translateY(-110%);
@@ -62,7 +63,16 @@ p{
     opacity: 1;
 }
 
+.animate-head-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.3s ease-out;
+}
 
+.home-main-active .animate-head-scroll{
+    opacity: 1;
+    transform: translateY(0);
+}
 
 
 
@@ -2645,6 +2655,9 @@ footer{
     width: 2px;
     height: 12px;
 }
+
+
+
 
 
 
