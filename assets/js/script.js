@@ -2,7 +2,16 @@
 //     $('html, body').stop().animate({ scrollTop: 0 }, 400);
 // });
 
+$(document).ready(function () {
+    setTimeout(function () {
+        $(".tagilskaya-sec").addClass("tagilskaya-act");
+    }, 900);
+    setTimeout(function () {
+        $('body').addClass("home-main-active");
+        // Через 600 мс после появления контента — плавное появление хедера
 
+    }, 3000);
+});
 
 $(document).ready(function () {
     $('.open-menu').on('click', function () {

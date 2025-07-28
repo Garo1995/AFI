@@ -38,8 +38,29 @@ p{
 
 
 
-
-
+.tagilskaya-sec{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 999999;
+    transition: 1.8s;
+    background: #FFFFFF;
+}
+.home-main-active .tagilskaya-sec{
+    transform: translateY(-110%);
+}
+.tagilskaya-logo{
+    height: 100%;
+}
+.tagilskaya-logo img{
+    transition: 1.3s;
+    opacity: 0;
+}
+.tagilskaya-act .tagilskaya-logo img{
+    opacity: 1;
+}
 
 
 
