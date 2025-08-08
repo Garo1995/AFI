@@ -2650,7 +2650,9 @@
     .all-news-box p {
         min-height: 82px;
     }
-
+    .tagilskaya-sec{
+        border-radius: 24px;
+    }
 
 }
 
