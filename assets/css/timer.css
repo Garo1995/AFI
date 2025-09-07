@@ -107,6 +107,17 @@
         border-radius: 20px;
         max-width: 500px;
     }
+    .timer-wrapper {
+        border-radius: 20px;
+        order: 1;
+    }
+    .from-station{
+        order: 2;
+    }
+    .card-stack{
+        order: 3;
+    }
+
 }
 @media (max-width: 570px) {
     .timer {
@@ -137,8 +148,8 @@
 
     }
     .timer-wrapper h3 {
-        font-size: 20px;
-        line-height: 26px;
+        font-size: 18px;
+        line-height: 30px;
     }
     .timer-wrapper {
         padding: 20px 12px;
